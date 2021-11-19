@@ -1,5 +1,5 @@
 package com.ssafy.util;
-
+//aaaaaaaaaaaaaaa
 public class PageNavigation {
 
 	private boolean startRange;
