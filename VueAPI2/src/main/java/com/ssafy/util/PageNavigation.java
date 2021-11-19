@@ -1,6 +1,10 @@
 package com.ssafy.util;
+<<<<<<< HEAD
 //aaaaaaaaaaaaaaa
 //bbbbbbbbbbbbbbb
+=======
+//하윤씨 보이시나요
+>>>>>>> f0adfc0d522493c406c8995f38546805b3844322
 public class PageNavigation {
 
 	private boolean startRange;
