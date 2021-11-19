@@ -1,0 +1,45 @@
+<template>
+  <b-container class="bv-example-row mt-3 text-center">
+    <b-row>
+      <b-col></b-col>
+      <b-col cols="10">
+        <b-jumbotron
+          class="jumbo"
+          bg-variant="muted"
+          text-variant="dark"
+          border-variant="light"
+        >
+          <template #header><b>HappyHouse SNS</b></template>
+
+          <template #lead> 홍보용 SNS </template>
+
+          <hr class="my-4" />
+
+          <p>사진을 클릭하여 계정을 방문해보세요.</p>
+          <p><b>ssafy@instagram.com</b></p>
+          <a href="https://www.instagram.com/hellossafy/?hl=ko">
+            <img
+              src="@/assets/instagramimg1.png"
+              class="d-inline-block align-middle"
+              width="600px"
+              alt="Kitten"
+            />
+          </a>
+        </b-jumbotron>
+      </b-col>
+      <b-col></b-col>
+    </b-row>
+  </b-container>
+</template>
+
+<script>
+export default {
+  name: "News",
+};
+</script>
+
+<style scoped>
+.jumbo{
+  background-color: white;
+}
+</style>

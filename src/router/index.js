@@ -2,7 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@/views/Home.vue";
 import Instargram from "@/views/Instargram.vue";
-
 import Member from "@/views/Member.vue";
 import MemberLogin from "@/components/user/MemberLogin.vue";
 import MemberJoin from "@/components/user/MemberJoin.vue";
@@ -18,6 +17,7 @@ import BoardDelete from "@/components/board/BoardDelete.vue";
 import AnswerDelete from "@/components/board/AnswerDelete.vue";
 
 import House from "@/views/House.vue";
+import News from "@/views/News.vue";
 
 import store from "@/store/index.js";
 
@@ -50,6 +50,11 @@ const routes = [
     path: "/instargram",
     name: "Instargram",
     component: Instargram,
+  },
+  {
+    path: "/news",
+    name: "News",
+    component: News,
   },
   {
     path: "/user",

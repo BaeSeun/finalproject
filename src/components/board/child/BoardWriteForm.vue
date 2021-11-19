@@ -14,7 +14,7 @@
             v-model="article.userid"
             type="text"
             required
-            placeholder="작성자 입력..."
+            placeholder="작성자를 입력하세요."
           ></b-form-input>
         </b-form-group>
 
@@ -29,7 +29,7 @@
             v-model="article.subject"
             type="text"
             required
-            placeholder="제목 입력..."
+            placeholder="제목을 입력하세요."
           ></b-form-input>
         </b-form-group>
 
@@ -37,7 +37,7 @@
           <b-form-textarea
             id="content"
             v-model="article.content"
-            placeholder="내용 입력..."
+            placeholder="내용을 입력하세요."
             rows="10"
             max-rows="15"
           ></b-form-textarea>
@@ -45,15 +45,15 @@
 
         <b-button
           type="submit"
-          variant="primary"
+          variant="dark"
           class="m-1"
           v-if="this.type === 'register'"
-          >글작성</b-button
+          >작성</b-button
         >
-        <b-button type="submit" variant="primary" class="m-1" v-else
-          >글수정</b-button
+        <b-button type="submit" variant="dark" class="m-1" v-else
+          >수정</b-button
         >
-        <b-button type="reset" variant="danger" class="m-1">초기화</b-button>
+        <b-button type="reset" variant="dark" class="m-1">초기화</b-button>
       </b-form>
     </b-col>
   </b-row>
@@ -130,7 +130,7 @@ export default {
           content: this.article.content,
         })
         .then(({ data }) => {
-          let msg = "등록 처리시 문제가 발생했습니다.";
+          let msg = "등록 중 문제가 발생했습니다.";
           if (data === "success") {
             msg = "등록이 완료되었습니다.";
           }
@@ -147,7 +147,7 @@ export default {
           content: this.article.content,
         })
         .then(({ data }) => {
-          let msg = "수정 처리시 문제가 발생했습니다.";
+          let msg = "수정 중 문제가 발생했습니다.";
           if (data === "success") {
             msg = "수정이 완료되었습니다.";
           }
