@@ -5,7 +5,6 @@
       <b-col cols="10">
         <b-jumbotron
           class="jumbo"
-          bg-variant="muted"
           text-variant="dark"
           border-variant="white"
         >

@@ -40,6 +40,6 @@ export default {
 
 <style scoped>
 .jumbo {
-  background-color: white;
+  background-color: rgb(255, 211, 211);
 }
 </style>

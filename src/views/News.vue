@@ -20,29 +20,23 @@
           <!-- <template #lead> 홍보용 SNS </template> -->
 
           <hr class="my-4" />
+          <a href="https://www.fnnews.com/news/202111170831513525">
           <img
             src="@/assets/newsimg1.png"
             class="d-inline-block align-middle"
             width="800px"
             alt="Kitten"
           />
+          </a>
+          <a href="https://newsis.com/view/?id=NISX20211116_0001653234&cID=10401&pID=10400">
           <img
             src="@/assets/newsimg2.png"
             class="d-inline-block align-middle"
             width="800px"
             alt="Kitten"
           />
-
-          <p>사진을 클릭하여 계정을 방문해보세요.</p>
-          <p><b>ssafy@instagram.com</b></p>
-          <a href="https://www.instagram.com/hellossafy/?hl=ko">
-            <img
-              src="@/assets/instagramimg1.png"
-              class="d-inline-block align-middle"
-              width="600px"
-              alt="Kitten"
-            />
           </a>
+          
         </b-jumbotron>
       </b-col>
       <b-col></b-col>
@@ -58,6 +52,6 @@ export default {
 
 <style scoped>
 .jumbo {
-  background-color: rgb(241, 207, 213);
+  background-color: rgb(179, 212, 243);
 }
 </style>
