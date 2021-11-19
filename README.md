@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # vue-board
 
 ## Project setup
@@ -21,3 +22,6 @@ npm run serve
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+# finalproject
+>>>>>>> 30febee4a5e55565c240b785bc0a65df56959e27
