@@ -49,7 +49,7 @@ export default {
 
 <style scoped>
 .jumbo {
-  background-color: white;
+  background-color: #faed7d;
 }
 .tofont {
   font-family: "Jua", sans-serif;

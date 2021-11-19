@@ -20,19 +20,19 @@
           <b-form-textarea
             id="comment"
             v-model="memo.comment"
-            placeholder="내용 입력..."
+            placeholder="내용을 입력하세요."
             rows="2"
             max-rows="15"
           ></b-form-textarea>
         </b-form-group>
         <b-button
           type="submit"
-          variant="primary"
+          variant="dark"
           class="m-1"
           v-if="this.type === 'modify'"
-          >답변수정</b-button
+          >답변 수정</b-button
         >
-        <b-button type="reset" variant="danger" class="m-1">초기화</b-button>
+        <b-button type="reset" variant="dark" class="m-1">초기화</b-button>
       </b-form>
     </b-col>
   </b-row>

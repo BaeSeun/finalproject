@@ -2,10 +2,10 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@/views/Home.vue";
 import Instargram from "@/views/Instargram.vue";
-
 import Member from "@/views/Member.vue";
 import MemberLogin from "@/components/user/MemberLogin.vue";
 import MemberJoin from "@/components/user/MemberJoin.vue";
+import MemberMyPage from "@/components/user/MemberMyPage.vue";
 
 import Board from "@/views/Board.vue";
 import BoardList from "@/components/board/BoardList.vue";
@@ -17,9 +17,29 @@ import BoardDelete from "@/components/board/BoardDelete.vue";
 import AnswerDelete from "@/components/board/AnswerDelete.vue";
 
 import House from "@/views/House.vue";
+import News from "@/views/News.vue";
+
+import store from "@/store/index.js";
 
 Vue.use(VueRouter);
-
+// https://router.vuejs.org/kr/guide/advanced/navigation-guards.html
+const onlyAuthUser = async (to, from, next) => {
+  // console.log(store);
+  const checkUserInfo = store.getters["memberStore/checkUserInfo"];
+  const getUserInfo = store._actions["memberStore/getUserInfo"];
+  let token = sessionStorage.getItem("access-token");
+  if (checkUserInfo == null && token) {
+    await getUserInfo(token);
+  }
+  if (checkUserInfo === null) {
+    alert("로그인이 필요한 페이지입니다..");
+    // next({ name: "SignIn" });
+    router.push({ name: "SignIn" });
+  } else {
+    console.log("로그인 했다.");
+    next();
+  }
+};
 const routes = [
   {
     path: "/",
@@ -30,6 +50,11 @@ const routes = [
     path: "/instargram",
     name: "Instargram",
     component: Instargram,
+  },
+  {
+    path: "/news",
+    name: "News",
+    component: News,
   },
   {
     path: "/user",
@@ -45,6 +70,12 @@ const routes = [
         path: "singup",
         name: "SignUp",
         component: MemberJoin,
+      },
+      {
+        path: "mypage",
+        name: "MyPage",
+        beforeEnter: onlyAuthUser,
+        component: MemberMyPage,
       },
     ],
   },
@@ -62,16 +93,19 @@ const routes = [
       {
         path: "write",
         name: "BoardWrite",
+        beforeEnter: onlyAuthUser,
         component: BoardWrite,
       },
       {
         path: "detail/:articleno",
         name: "BoardView",
+        beforeEnter: onlyAuthUser,
         component: BoardView,
       },
       {
         path: "update/:articleno",
         name: "BoardUpdate",
+        beforeEnter: onlyAuthUser,
         component: BoardUpdate,
       },
       {
@@ -90,6 +124,10 @@ const routes = [
     path: "/memo",
     name: "AnswerDelete",
     component: AnswerDelete,
+  },
+  {
+    path: "*",
+    redirect: "/",
   },
 ];
 

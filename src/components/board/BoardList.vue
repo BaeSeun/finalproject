@@ -1,16 +1,14 @@
 <template>
   <b-container class="bv-example-row mt-3">
     <img
-            src="@/assets/qnaimg1.png"
-            class="d-inline-block align-middle"
-            width="700px"
-            alt="Kitten"
-          />
+      src="@/assets/qnaimg1.png"
+      class="d-inline-block align-middle"
+      width="700px"
+      alt="Kitten"
+    />
     <b-row class="mb-1">
       <b-col class="text-right">
-        <b-button variant="warning" @click="moveWrite()"
-          >질문하기</b-button
-        >
+        <b-button variant="dark" @click="moveWrite()">질문하기</b-button>
       </b-col>
     </b-row>
     <b-row>
@@ -76,7 +74,7 @@ export default {
   width: 300px;
   text-align: left;
 }
-.table{
+.table {
   background-color: white;
 }
 </style>
