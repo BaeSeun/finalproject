@@ -18,14 +18,14 @@ export default {
 
 <style>
 html {
-  background-color: #86E57F;
+  background-color: #86e57f;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-#app{
-  background-color: #86E57F;
+#app {
+  background-color: #86e57f;
   background-size: cover;
 }
 a:hover {

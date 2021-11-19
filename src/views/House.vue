@@ -1,17 +1,17 @@
 <template>
   <b-container class="bv-example-row mt-3 text-center">
     <img
-              src="@/assets/aptinfoimg1.png"
-              class="d-inline-block align-middle"
-              width="700px"
-              alt="Kitten"
-            />
+      src="@/assets/aptinfoimg1.png"
+      class="d-inline-block align-middle"
+      width="700px"
+      alt="Kitten"
+    />
     <b-row>
       <b-col>
         <house-search-bar></house-search-bar>
       </b-col>
     </b-row>
-    
+
     <b-row>
       <b-col cols="6" align="left">
         <house-list />
@@ -36,6 +36,4 @@ export default {
   },
 };
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>
