@@ -9,6 +9,12 @@
             width="70px"
             alt="Kitten"
           />
+          <img
+            src="@/assets/navicon1.png"
+            class="d-inline-block align-middle"
+            width="120px"
+            alt="Kitten"
+          />
         </router-link>
       </b-navbar-brand>
 
@@ -33,13 +39,19 @@
             ></b-nav-item
           >
           <b-nav-item href="#"
+            ><router-link :to="{ name: 'News' }" class="link"
+              >
+              NEWS</router-link
+            ></b-nav-item
+          >
+          <b-nav-item href="#"
             ><router-link :to="{ name: 'House' }" class="link"
               > APT
               INFO</router-link
             ></b-nav-item
           >
         </b-navbar-nav>
-
+        
         <b-navbar-nav class="ml-auto">
             <b-dropdown-item href="#"
               ><router-link :to="{ name: 'SignUp' }" class="link"

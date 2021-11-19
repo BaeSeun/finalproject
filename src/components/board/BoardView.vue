@@ -2,23 +2,23 @@
   <b-container class="bv-example-row mt-3">
     <b-row>
       <b-col>
-        <b-alert show><h3>글보기</h3></b-alert>
+        <b-alert show><h3>질문 보기</h3></b-alert>
       </b-col>
     </b-row>
     <b-row class="mb-1">
       <b-col class="text-left">
-        <b-button variant="outline-primary" @click="listArticle">목록</b-button>
+        <b-button variant="info" @click="listArticle">목록</b-button>
       </b-col>
       <b-col class="text-right">
         <b-button
-          variant="outline-info"
+          variant="success"
           size="sm"
           @click="moveModifyArticle"
           class="mr-2"
-          >글수정</b-button
+          >질문 수정</b-button
         >
-        <b-button variant="outline-danger" size="sm" @click="deleteArticle"
-          >글삭제</b-button
+        <b-button variant="success" size="sm" @click="deleteArticle"
+          >질문 삭제</b-button
         >
       </b-col>
     </b-row>
@@ -53,11 +53,11 @@
         v-if="modify"
         v-bind="answer"
         type="modify"
-      /><b-button variant="outline-info" size="sm" @click="modifyAnswer"
-        >답변수정</b-button
+      /><b-button variant="dark" size="sm" @click="modifyAnswer"
+        >답변 수정</b-button
       >&nbsp;
-      <b-button variant="outline-danger" size="sm" @click="deleteAnswer"
-        >답변삭제</b-button
+      <b-button variant="dark" size="sm" @click="deleteAnswer"
+        >답변 삭제</b-button
       >
     </b-col>
     <b-col v-else class="text-center"
@@ -119,7 +119,7 @@ export default {
       //   this.$router.push({ path: `/board/modify/${this.article.articleno}` });
     },
     deleteArticle() {
-      if (confirm("정말로 삭제?")) {
+      if (confirm("삭제하실건가요?")) {
         this.$router.replace({
           name: "BoardDelete",
           params: { articleno: this.article.articleno },
@@ -127,7 +127,7 @@ export default {
       }
     },
     deleteAnswer() {
-      if (confirm("정말로 삭제?")) {
+      if (confirm("삭제하실건가요?")) {
         this.$router.replace({
           name: "AnswerDelete",
           params: { articleno: this.answer.articleno },
