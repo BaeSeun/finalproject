@@ -1,5 +1,5 @@
 package com.ssafy.util;
-//주석임
+//하윤씨 보이시나요
 public class PageNavigation {
 
 	private boolean startRange;
