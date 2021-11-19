@@ -9,11 +9,29 @@
           text-variant="dark"
           border-variant="light"
         >
-          <template #header><b>HappyHouse SNS</b></template>
+          <template #header>
+            <img
+              src="@/assets/newsimg3.png"
+              class="d-inline-block align-middle"
+              width="800px"
+              alt="Kitten"
+          /></template>
 
-          <template #lead> 홍보용 SNS </template>
+          <!-- <template #lead> 홍보용 SNS </template> -->
 
           <hr class="my-4" />
+          <img
+            src="@/assets/newsimg1.png"
+            class="d-inline-block align-middle"
+            width="800px"
+            alt="Kitten"
+          />
+          <img
+            src="@/assets/newsimg2.png"
+            class="d-inline-block align-middle"
+            width="800px"
+            alt="Kitten"
+          />
 
           <p>사진을 클릭하여 계정을 방문해보세요.</p>
           <p><b>ssafy@instagram.com</b></p>
@@ -40,6 +58,6 @@ export default {
 
 <style scoped>
 .jumbo {
-  background-color: white;
+  background-color: rgb(241, 207, 213);
 }
 </style>
