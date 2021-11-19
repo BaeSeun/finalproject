@@ -1,5 +1,5 @@
 package com.ssafy.util;
-
+//주석임
 public class PageNavigation {
 
 	private boolean startRange;
