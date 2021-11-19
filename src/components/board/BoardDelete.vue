@@ -6,7 +6,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col><b-alert show variant="danger">삭제중/b-alert></b-col>
+      <b-col><b-alert show variant="danger">삭제중</b-alert></b-col>
     </b-row>
   </b-container>
 </template>

@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style scoped>
-.jumbo{
+.jumbo {
   background-color: white;
 }
 </style>
