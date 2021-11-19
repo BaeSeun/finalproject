@@ -20,9 +20,9 @@ public class PageNavigation {
 		this.startRange = startRange;
 	}
 
-	public boolean isEndRange() {
-		return endRange;
-	}
+//	public boolean isEndRange() {
+//		return endRange;
+//	}
 
 	public void setEndRange(boolean endRange) {
 		this.endRange = endRange;
