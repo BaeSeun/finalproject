@@ -3,12 +3,7 @@
     <b-row>
       <b-col></b-col>
       <b-col cols="10">
-        <b-jumbotron
-          class="jumbo"
-          bg-variant="muted"
-          text-variant="dark"
-          border-variant="white"
-        >
+        <b-jumbotron class="jumbo" text-variant="dark" border-variant="white">
           <template #header>
             <img
               src="@/assets/homeimg1.png"
