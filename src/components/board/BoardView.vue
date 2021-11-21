@@ -100,6 +100,7 @@ export default {
     // },
   },
   created() {
+    console.log(this.$route.params.articleno);
     http.get(`/board/${this.$route.params.articleno}`).then(({ data }) => {
       this.article = data;
     });

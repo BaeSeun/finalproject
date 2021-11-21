@@ -49,7 +49,11 @@ const memberStore = {
       findById(
         decode_token.userid,
         (response) => {
-          if (response.data.message === "success") {
+          console.log(response.data.userInfo);
+          if (
+            response.data.message === "success" &&
+            response.data.userInfo.del == 0
+          ) {
             commit("SET_USER_INFO", response.data.userInfo);
           } else {
             console.log("유저 정보 없음!!");

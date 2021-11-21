@@ -7,6 +7,8 @@ import Member from "@/views/Member.vue";
 import MemberLogin from "@/components/user/MemberLogin.vue";
 import MemberJoin from "@/components/user/MemberJoin.vue";
 import MemberMyPage from "@/components/user/MemberMyPage.vue";
+import MemberModify from "@/components/user/MemberModify.vue";
+import MemberList from "@/components/user/MemberList.vue";
 
 import Board from "@/views/Board.vue";
 import BoardList from "@/components/board/BoardList.vue";
@@ -77,6 +79,18 @@ const routes = [
         name: "MyPage",
         beforeEnter: onlyAuthUser,
         component: MemberMyPage,
+      },
+      {
+        path: "modify",
+        name: "Modify",
+        beforeEnter: onlyAuthUser,
+        component: MemberModify,
+      },
+      {
+        path: "list",
+        name: "MemberList",
+        beforeEnter: onlyAuthUser,
+        component: MemberList,
       },
     ],
   },

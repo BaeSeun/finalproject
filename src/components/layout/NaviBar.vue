@@ -64,6 +64,14 @@
               >내정보보기</router-link
             ></b-nav-item
           >
+          <b-nav-item class="align-self-center">
+            <router-link
+              v-if="userInfo.userid == 'admin'"
+              :to="{ name: 'MemberList' }"
+              class="link align-self-center"
+              >회원관리</router-link
+            ></b-nav-item
+          >
           <b-nav-item
             class="link align-self-center"
             @click.prevent="onClickLogout"

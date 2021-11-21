@@ -21,22 +21,23 @@
 
           <hr class="my-4" />
           <a href="https://www.fnnews.com/news/202111170831513525">
-          <img
-            src="@/assets/newsimg1.png"
-            class="d-inline-block align-middle"
-            width="800px"
-            alt="Kitten"
-          />
+            <img
+              src="@/assets/newsimg1.png"
+              class="d-inline-block align-middle"
+              width="800px"
+              alt="Kitten"
+            />
           </a>
-          <a href="https://newsis.com/view/?id=NISX20211116_0001653234&cID=10401&pID=10400">
-          <img
-            src="@/assets/newsimg2.png"
-            class="d-inline-block align-middle"
-            width="800px"
-            alt="Kitten"
-          />
+          <a
+            href="https://newsis.com/view/?id=NISX20211116_0001653234&cID=10401&pID=10400"
+          >
+            <img
+              src="@/assets/newsimg2.png"
+              class="d-inline-block align-middle"
+              width="800px"
+              alt="Kitten"
+            />
           </a>
-          
         </b-jumbotron>
       </b-col>
       <b-col></b-col>

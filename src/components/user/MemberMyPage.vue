@@ -47,8 +47,15 @@
           </b-container>
           <hr class="my-4" />
 
-          <b-button variant="primary" href="#" class="mr-1">정보수정</b-button>
-          <b-button variant="danger" href="#">회원탈퇴</b-button>
+          <b-button variant="primary" href="#" class="mr-1"
+            ><router-link
+              :to="{ name: 'Modify', params: { userid: userInfo.userid } }"
+              >정보수정</router-link
+            ></b-button
+          >
+          <b-button variant="danger" href="#" @click="deleteUser"
+            >회원탈퇴</b-button
+          >
         </b-jumbotron>
       </b-col>
       <b-col></b-col>
@@ -57,15 +64,35 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 
 const memberStore = "memberStore";
-
+import http from "@/util/http-common";
 export default {
   name: "MemberMyPage",
   components: {},
   computed: {
-    ...mapState(memberStore, ["userInfo"]),
+    ...mapState(memberStore, ["isLogin", "userInfo"]),
+  },
+  created() {},
+  methods: {
+    ...mapMutations(memberStore, ["SET_IS_LOGIN", "SET_USER_INFO"]),
+    deleteUser() {
+      if (confirm("삭제하실건가요?")) {
+        http.delete(`/user/${this.userInfo.userid}`).then(({ data }) => {
+          let msg = "삭제 중 문제 발생";
+          if (data === "success") {
+            msg = "삭제 완료";
+          }
+          alert(msg);
+          // 현재 route를 /list로 변경.
+          this.SET_IS_LOGIN(false);
+          this.SET_USER_INFO(null);
+          sessionStorage.removeItem("access-token");
+          if (this.$route.path != "/") this.$router.push({ name: "Home" });
+        });
+      }
+    },
   },
 };
 </script>

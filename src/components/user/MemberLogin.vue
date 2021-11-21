@@ -6,12 +6,15 @@
       width="400px"
       alt="Kitten"
     />
-    
+
     <b-row>
       <b-col></b-col>
       <b-col cols="8">
-        <b-card class="text-center mt-3" style="max-width: 50rem" align="left">
-          
+        <b-card
+          class="text-center mt-3 bg-secondary"
+          style="max-width: 50rem"
+          align="left"
+        >
           <b-form class="text-left">
             <b-alert show variant="danger" v-if="isLoginError"
               >아이디 또는 비밀번호를 확인하세요.</b-alert
@@ -36,22 +39,22 @@
               ></b-form-input>
             </b-form-group>
             <b-col class="text-center">
-            <b-button
-              type="button"
-              variant="dark"
-              class="m-1"
-              @click="confirm"
-              align="center"
-              >로그인</b-button
-            >
-            <b-button
-              type="button"
-              variant="dark"
-              class="m-1"
-              @click="movePage"
-              align="center"
-              >회원가입</b-button
-            >
+              <b-button
+                type="button"
+                variant="dark"
+                class="m-1"
+                @click="confirm"
+                align="center"
+                >로그인</b-button
+              >
+              <b-button
+                type="button"
+                variant="dark"
+                class="m-1"
+                @click="movePage"
+                align="center"
+                >회원가입</b-button
+              >
             </b-col>
           </b-form>
         </b-card>
@@ -97,10 +100,10 @@ export default {
 </script>
 
 <style>
-.loginimg{
+.loginimg {
   align-content: center;
 }
-.card{
+.card {
   background-color: navajowhite;
 }
 </style>
