@@ -9,6 +9,7 @@
     
     <b-row>
       <b-col></b-col>
+      
       <b-col cols="8">
         <b-card class="text-center mt-3" style="max-width: 50rem" align="left">
           
@@ -58,6 +59,7 @@
       </b-col>
       <b-col></b-col>
     </b-row>
+
   </b-container>
 </template>
 
@@ -100,7 +102,5 @@ export default {
 .loginimg{
   align-content: center;
 }
-.card{
-  background-color: navajowhite;
-}
+
 </style>

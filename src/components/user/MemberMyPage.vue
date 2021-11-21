@@ -1,17 +1,16 @@
 <template>
   <b-container class="mt-4" v-if="userInfo">
     <b-row>
-      <b-col>
-        <b-alert variant="secondary" show><h3>내정보</h3></b-alert>
-      </b-col>
-    </b-row>
-    <b-row>
       <b-col></b-col>
       <b-col cols="8">
-        <b-jumbotron>
-          <template #header>My Page</template>
-
-          <template #lead> 내 정보 확인페이지입니다. </template>
+        <b-jumbotron
+        class="jumbo">
+          <img
+            src="@/assets/mypageimg1.png"
+            class="d-inline-block align-middle"
+            width="600px"
+            alt="Kitten"
+          />
 
           <hr class="my-4" />
 
@@ -38,7 +37,7 @@
             </b-row>
             <b-row>
               <b-col cols="2"></b-col>
-              <b-col cols="2" align-self="end">가입일</b-col
+              <b-col cols="2" align-self="end">가입시간</b-col
               ><b-col cols="4" align-self="start">{{
                 userInfo.joindate
               }}</b-col>
@@ -47,8 +46,8 @@
           </b-container>
           <hr class="my-4" />
 
-          <b-button variant="primary" href="#" class="mr-1">정보수정</b-button>
-          <b-button variant="danger" href="#">회원탈퇴</b-button>
+          <b-button variant="dark" href="#" class="mr-1">정보 수정</b-button>
+          <b-button variant="dark" href="#">회원 탈퇴</b-button>
         </b-jumbotron>
       </b-col>
       <b-col></b-col>
@@ -70,4 +69,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.jumbo {
+  background-color: rgb(255, 211, 211);
+}
+</style>
