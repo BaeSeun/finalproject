@@ -9,14 +9,6 @@
           text-variant="dark"
           border-variant="light"
         >
-          <template #header><b>HappyHouse SNS</b></template>
-
-          <template #lead> 홍보용 SNS </template>
-
-          <hr class="my-4" />
-
-          <p>사진을 클릭하여 계정을 방문해보세요.</p>
-          <p><b>ssafy@instagram.com</b></p>
           <a href="https://www.instagram.com/hellossafy/?hl=ko">
             <img
               src="@/assets/instagramimg1.png"
@@ -25,6 +17,11 @@
               alt="Kitten"
             />
           </a>
+          <hr class="my-4" />
+
+          <p><b>위 사진을 클릭하여 행복의 집 계정을 방문해보세요!</b></p>
+          <p><b>ssafy@instagram.com</b></p>
+          
         </b-jumbotron>
       </b-col>
       <b-col></b-col>
@@ -40,6 +37,6 @@ export default {
 
 <style scoped>
 .jumbo {
-  background-color: rgb(255, 211, 211);
+  background-color: rgb(225, 214, 231);
 }
 </style>

@@ -11,9 +11,9 @@
         >
           <template #header>
             <img
-              src="@/assets/newsimg3.png"
+              src="@/assets/newsimg4.png"
               class="d-inline-block align-middle"
-              width="800px"
+              width="600px"
               alt="Kitten"
           /></template>
 
@@ -38,6 +38,14 @@
               alt="Kitten"
             />
           </a>
+          <a href="https://www.yna.co.kr/view/AKR20211118086500003?input=1195m">
+            <img
+              src="@/assets/newsimg3.png"
+              class="d-inline-block align-middle"
+              width="800px"
+              alt="Kitten"
+            />
+          </a>
         </b-jumbotron>
       </b-col>
       <b-col></b-col>
@@ -53,6 +61,6 @@ export default {
 
 <style scoped>
 .jumbo {
-  background-color: rgb(179, 212, 243);
+  background-color: rgb(188, 216, 243);
 }
 </style>

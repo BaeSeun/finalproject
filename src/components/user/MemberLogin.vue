@@ -9,6 +9,7 @@
 
     <b-row>
       <b-col></b-col>
+
       <b-col cols="8">
         <b-card
           class="text-center mt-3 bg-secondary"
@@ -102,8 +103,5 @@ export default {
 <style>
 .loginimg {
   align-content: center;
-}
-.card {
-  background-color: navajowhite;
 }
 </style>
