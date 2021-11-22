@@ -92,7 +92,7 @@ export default {
       this.map = new kakao.maps.Map(container, options);
 
       this.geocoder = new kakao.maps.services.Geocoder();
-      this.geocoder.addressSearch("초량동 1218", (result, status) => {
+      this.geocoder.addressSearch(house.법정동+house.지번, (result, status) => {
         // 정상적으로 검색이 완료됐으면
         if (status === kakao.maps.services.Status.OK) {
           var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
