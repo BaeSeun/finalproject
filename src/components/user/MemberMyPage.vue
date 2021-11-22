@@ -47,8 +47,8 @@
 
           <b-button variant="dark" href="#" class="mr-1 text-white">
             <router-link
-            :to="{ name: 'Modify', params: { userid: userInfo.userid } }"
-            >정보수정</router-link
+              :to="{ name: 'Modify', params: { userid: userInfo.userid } }"
+              >정보수정</router-link
             ></b-button
           >
           <b-button variant="dark" href="#" @click="deleteUser"

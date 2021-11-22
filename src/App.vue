@@ -30,7 +30,7 @@ html {
 }
 a.router-link {
   text-decoration: none !important;
-  color : black;
+  color: black;
 }
 a:hover {
   text-decoration: none !important;

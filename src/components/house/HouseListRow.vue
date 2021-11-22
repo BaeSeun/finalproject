@@ -40,6 +40,8 @@ export default {
       console.log("listRow : ", this.house);
       // this.$store.dispatch("getHouse", this.house);
       this.detailHouse(this.house);
+      var add = this.house.법정동 + " " + this.house.지번;
+      console.log(add);
     },
     colorChange(flag) {
       this.isColor = flag;
