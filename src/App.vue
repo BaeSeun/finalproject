@@ -28,13 +28,26 @@ html {
   background-color: #86e57f;
   background-size: cover;
 }
+a.router-link {
+  text-decoration: none !important;
+  color : black;
+}
 a:hover {
-  text-decoration: none;
+  text-decoration: none !important;
   font-weight: bold;
 }
 
 a.router-link-exact-active {
-  color: #24ad1a;
+  color: #24ad1a !important;
   font-weight: bold;
+}
+
+a.router-link-active {
+  color: #24ad1a !important;
+  text-decoration: none !important;
+  font-weight: bold;
+}
+a {
+  text-decoration: none !important;
 }
 </style>
