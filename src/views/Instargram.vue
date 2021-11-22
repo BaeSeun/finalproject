@@ -21,7 +21,6 @@
 
           <p><b>위 사진을 클릭하여 행복의 집 계정을 방문해보세요!</b></p>
           <p><b>ssafy@instagram.com</b></p>
-          
         </b-jumbotron>
       </b-col>
       <b-col></b-col>

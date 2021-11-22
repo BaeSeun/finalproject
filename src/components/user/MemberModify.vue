@@ -6,76 +6,80 @@
       width="400px"
       alt="Kitten"
     />
-  <b-row class="mb-1">
-    <b-col style="text-align: left">
-      <b-form @submit="onSubmit" @reset="onReset">
-        <b-form-group
-          id="userid-group"
-          label="아이디:"
-          label-for="userid"
-          description="아이디를 입력하세요."
-        >
-          <b-form-input
-            id="userid"
-            v-model="userInfo.userid"
-            type="text"
-            required
-            placeholder="아이디를 입력하세요."
-            readonly
-          ></b-form-input>
-        </b-form-group>
+    <b-row class="mb-1">
+      <b-col style="text-align: left">
+        <b-form @submit="onSubmit" @reset="onReset">
+          <b-form-group
+            id="userid-group"
+            label="아이디:"
+            label-for="userid"
+            description="아이디를 입력하세요."
+          >
+            <b-form-input
+              id="userid"
+              v-model="userInfo.userid"
+              type="text"
+              required
+              placeholder="아이디를 입력하세요."
+              readonly
+            ></b-form-input>
+          </b-form-group>
 
-        <b-form-group
-          id="username-group"
-          label="이름:"
-          label-for="username"
-          description="이름을 입력하세요."
-        >
-          <b-form-input
-            id="username"
-            v-model="userInfo.username"
-            type="text"
-            required
-            placeholder="이름을 입력하세요."
-          ></b-form-input>
-        </b-form-group>
+          <b-form-group
+            id="username-group"
+            label="이름:"
+            label-for="username"
+            description="이름을 입력하세요."
+          >
+            <b-form-input
+              id="username"
+              v-model="userInfo.username"
+              type="text"
+              required
+              placeholder="이름을 입력하세요."
+            ></b-form-input>
+          </b-form-group>
 
-        <b-form-group
-          id="userpwd-group"
-          label="비밀번호:"
-          label-for="userpwd"
-          description="비밀번호를 입력하세요."
-        >
-          <b-form-input
-            id="userpwd"
-            v-model="userInfo.userpwd"
-            type="password"
-            required
-            placeholder="비밀번호를 입력하세요."
-          ></b-form-input>
-        </b-form-group>
+          <b-form-group
+            id="userpwd-group"
+            label="비밀번호:"
+            label-for="userpwd"
+            description="비밀번호를 입력하세요."
+          >
+            <b-form-input
+              id="userpwd"
+              v-model="userInfo.userpwd"
+              type="password"
+              required
+              placeholder="비밀번호를 입력하세요."
+            ></b-form-input>
+          </b-form-group>
 
-        <b-form-group
-          id="email-group"
-          label="이메일:"
-          label-for="email"
-          description="이메일을 입력하세요."
-        >
-          <b-form-input
-            id="email"
-            v-model="userInfo.email"
-            type="text"
-            required
-            placeholder="이메일을 입력하세요."
-          ></b-form-input>
-        </b-form-group>
-        <b-col class="text-center">
-        <b-button type="submit" variant="dark" class="m-1" align="center">가입</b-button>
-        <b-button type="reset" variant="dark" class="m-1" align="center">초기화</b-button>
-        </b-col>
-      </b-form>
-    </b-col>
-  </b-row>
+          <b-form-group
+            id="email-group"
+            label="이메일:"
+            label-for="email"
+            description="이메일을 입력하세요."
+          >
+            <b-form-input
+              id="email"
+              v-model="userInfo.email"
+              type="text"
+              required
+              placeholder="이메일을 입력하세요."
+            ></b-form-input>
+          </b-form-group>
+          <b-col class="text-center">
+            <b-button type="submit" variant="dark" class="m-1" align="center"
+              >가입</b-button
+            >
+            <b-button type="reset" variant="dark" class="m-1" align="center"
+              >초기화</b-button
+            >
+          </b-col>
+        </b-form>
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 

@@ -122,5 +122,4 @@ export default {
   background-image: url("wood.jpeg");
   background-size: cover;
 }
-
 </style>

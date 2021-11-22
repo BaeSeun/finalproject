@@ -105,4 +105,3 @@ export default {
   align-content: center;
 }
 </style>
-
