@@ -45,13 +45,13 @@
           </b-container>
           <hr class="my-4" />
 
-          <b-button variant="primary" href="#" class="mr-1"
-            ><router-link
-              :to="{ name: 'Modify', params: { userid: userInfo.userid } }"
-              >정보수정</router-link
+          <b-button variant="dark" href="#" class="mr-1 text-white">
+            <router-link
+            :to="{ name: 'Modify', params: { userid: userInfo.userid } }"
+            >정보수정</router-link
             ></b-button
           >
-          <b-button variant="danger" href="#" @click="deleteUser"
+          <b-button variant="dark" href="#" @click="deleteUser"
             >회원탈퇴</b-button
           >
         </b-jumbotron>
@@ -98,5 +98,8 @@ export default {
 <style scoped>
 .jumbo {
   background-color: rgb(255, 211, 211);
+}
+.a {
+  text-decoration: none !important;
 }
 </style>

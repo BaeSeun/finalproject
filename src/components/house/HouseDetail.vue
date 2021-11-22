@@ -6,9 +6,9 @@
       >
     </b-row>
     <b-row class="mb-2 mt-1">
-      <b-col
-        ><b-img :src="require('@/assets/apt.png')" fluid-grow></b-img
-      ></b-col>
+      <div>
+        <div id="map"></div>
+      </div>
     </b-row>
     <b-row>
       <b-col>
@@ -47,6 +47,7 @@
   </b-container>
 </template>
 
+
 <script>
 import { mapState } from "vuex";
 
@@ -60,6 +61,84 @@ export default {
     //   return this.$store.state.house;
     // },
   },
+  data() {
+    return {
+      map: null,
+      markerPositions1: [],
+      markers: [],
+      infowindow: null,
+      xy: null,
+    };
+  },
+  mounted() {
+    if (window.kakao && window.kakao.maps) {
+      this.initMap();
+    } else {
+      const script = document.createElement("script");
+      /* global kakao */
+      script.onload = () => kakao.maps.load(this.initMap);
+      script.src =
+        "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=915cffed372954b7b44804ed422b9cf0&libraries=services";
+      document.head.appendChild(script);
+    }
+  },
+  methods: {
+    initMap() {
+      const container = document.getElementById("map");
+      const options = {
+        center: new kakao.maps.LatLng(33.450701, 126.570667),
+        level: 5,
+      };
+      this.map = new kakao.maps.Map(container, options);
+
+      this.geocoder = new kakao.maps.services.Geocoder();
+      this.geocoder.addressSearch("초량동 1218", (result, status) => {
+        // 정상적으로 검색이 완료됐으면
+        if (status === kakao.maps.services.Status.OK) {
+          var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+          this.markerPositions1.push(coords);
+          var marker = new kakao.maps.Marker({
+            map: this.map,
+            position: coords,
+          });
+          var infowindow = new kakao.maps.InfoWindow({
+            content:
+              '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>',
+          });
+          infowindow.open(this.map, marker);
+        }
+      });
+      console.log(this.markerPositions1);
+      this.displayMarker(this.markerPositions1);
+    },
+
+    displayMarker(markerPositions) {
+      if (this.markers.length > 0) {
+        this.markers.forEach((marker) => marker.setMap(null));
+      }
+
+      const positions = markerPositions.map(
+        (position) => new kakao.maps.LatLng(...position)
+      );
+
+      if (positions.length > 0) {
+        this.markers = positions.map(
+          (position) =>
+            new kakao.maps.Marker({
+              map: this.map,
+              position,
+            })
+        );
+
+        const bounds = positions.reduce(
+          (bounds, latlng) => bounds.extend(latlng),
+          new kakao.maps.LatLngBounds()
+        );
+
+        this.map.setBounds(bounds);
+      }
+    },
+  },
   filters: {
     price(value) {
       if (!value) return value;
@@ -69,4 +148,10 @@ export default {
 };
 </script>
 
-<style></style>
+
+<style>
+#map {
+  width: 540px;
+  height: 400px;
+}
+</style>
