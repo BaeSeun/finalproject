@@ -1,9 +1,9 @@
 <template>
   <b-container class="bv-example-row mt-3">
     <img
-      src="@/assets/qnaimg1.png"
+      src="@/assets/adminimg1.png"
       class="d-inline-block align-middle"
-      width="700px"
+      width="600px"
       alt="Kitten"
     />
     <b-row>

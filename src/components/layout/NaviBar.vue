@@ -49,9 +49,9 @@
           >
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto" v-if="userInfo">
-          <b-nav-item class="align-self-center"
+          <b-nav-item class="align-self-center text-muted"
             ><b-avatar
-              variant="primary"
+              variant="success"
               v-text="userInfo ? userInfo.userid.charAt(0).toUpperCase() : ''"
             ></b-avatar
             >{{ userInfo.username }}({{ userInfo.userid }})님

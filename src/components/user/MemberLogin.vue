@@ -12,7 +12,7 @@
 
       <b-col cols="8">
         <b-card
-          class="text-center mt-3 bg-secondary"
+          class="text-center mt-3 bg-transparent border-0"
           style="max-width: 50rem"
           align="left"
         >
@@ -105,3 +105,4 @@ export default {
   align-content: center;
 }
 </style>
+

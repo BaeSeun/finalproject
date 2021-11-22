@@ -1,4 +1,11 @@
 <template>
+  <b-container class="bv-example-row mt-3">
+    <img
+      src="@/assets/modifyimg1.png"
+      class="d-inline-block align-middle"
+      width="400px"
+      alt="Kitten"
+    />
   <b-row class="mb-1">
     <b-col style="text-align: left">
       <b-form @submit="onSubmit" @reset="onReset">
@@ -62,11 +69,14 @@
             placeholder="이메일을 입력하세요."
           ></b-form-input>
         </b-form-group>
-        <b-button type="submit" variant="dark" class="m-1">수정하기</b-button>
-        <b-button type="reset" variant="dark" class="m-1">초기화</b-button>
+        <b-col class="text-center">
+        <b-button type="submit" variant="dark" class="m-1" align="center">가입</b-button>
+        <b-button type="reset" variant="dark" class="m-1" align="center">초기화</b-button>
+        </b-col>
       </b-form>
     </b-col>
   </b-row>
+  </b-container>
 </template>
 
 <script>

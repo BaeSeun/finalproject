@@ -62,9 +62,10 @@
             placeholder="이메일을 입력하세요."
           ></b-form-input>
         </b-form-group>
-        
+        <b-col class="text-center">
         <b-button type="submit" variant="dark" class="m-1" align="center">가입</b-button>
         <b-button type="reset" variant="dark" class="m-1" align="center">초기화</b-button>
+        </b-col>
       </b-form>
     </b-col>
   </b-row>

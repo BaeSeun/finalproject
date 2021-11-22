@@ -1,11 +1,11 @@
 <template>
   <b-container class="bv-example-row mt-3">
     <img
-            src="@/assets/qnaimg1.png"
-            class="d-inline-block align-middle"
-            width="700px"
-            alt="Kitten"
-          />
+      src="@/assets/qnaimg1.png"
+      class="d-inline-block align-middle"
+      width="700px"
+      alt="Kitten"
+    />
     <b-row class="mb-1">
       <b-col class="text-right">
         <b-button variant="dark" @click="moveWrite()"
