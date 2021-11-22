@@ -48,6 +48,15 @@ a.router-link-active {
   font-weight: bold;
 }
 a {
+  color:brown;
   text-decoration: none !important;
+}
+
+.link{
+  color:brown;
+}
+
+.link:hover{
+  color:brown;
 }
 </style>

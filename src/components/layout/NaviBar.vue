@@ -1,6 +1,6 @@
 <template>
   <div class="navv">
-    <b-navbar class="nav-custom" toggleable="lg" type="dark">
+    <b-navbar class="nav-custom" toggleable="lg" type="white">
       <b-navbar-brand href="#">
         <router-link to="/">
           <img
@@ -49,14 +49,12 @@
           >
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto" v-if="userInfo">
-          <b-nav-item class="align-self-center text-muted"
-            ><b-avatar
+          <b-nav-item class="align-self-center">
+            <b-avatar
               variant="success"
               v-text="userInfo ? userInfo.userid.charAt(0).toUpperCase() : ''"
-            ></b-avatar
-            >{{ userInfo.username }}({{ userInfo.userid }})님
-            환영합니다.</b-nav-item
-          >
+            ></b-avatar>{{ userInfo.username }}({{ userInfo.userid }})님
+            환영합니다.</b-nav-item>
           <b-nav-item class="align-self-center"
             ><router-link
               :to="{ name: 'MyPage' }"
@@ -73,7 +71,7 @@
             ></b-nav-item
           >
           <b-nav-item
-            class="link align-self-center"
+            class="link align-self-center text-danger"
             @click.prevent="onClickLogout"
             >로그아웃</b-nav-item
           >
@@ -121,6 +119,9 @@ export default {
 .nav-custom {
   background-image: url("wood.jpeg");
   background-size: cover;
+}
+.nav-item{
+  color:green !important;
 }
 
 </style>
