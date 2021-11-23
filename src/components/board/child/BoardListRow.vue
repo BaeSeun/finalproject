@@ -1,6 +1,6 @@
 <template>
   <b-tr>
-    <b-td>{{ articleno }}</b-td>
+    <b-td>{{ index + 1 }}</b-td>
     <b-th class="text-left">
       <router-link
         :to="{ name: 'BoardView', params: { articleno: articleno } }"
@@ -19,6 +19,7 @@
 export default {
   name: "BoardListRow",
   props: {
+    index: Number,
     articleno: Number,
     userid: String,
     subject: String,

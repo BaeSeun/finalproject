@@ -27,6 +27,9 @@ export default {
   data() {
     return {};
   },
+  mounted() {
+    console.log(this.houses);
+  },
   computed: {
     ...mapState(houseStore, ["houses"]),
     // houses() {

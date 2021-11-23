@@ -1,12 +1,12 @@
-import { sidoList, gugunList, houseList } from "@/api/house.js";
-
-const houseStore = {
+import { sidoList, gugunList, cctvList } from "@/api/cctv.js";
+const cctvStore = {
   namespaced: true,
   state: {
     sidos: [{ value: null, text: "선택하세요" }],
     guguns: [{ value: null, text: "선택하세요" }],
-    houses: [],
-    house: null,
+    sidoNames: [],
+    cctvs: [],
+    cctv: null,
   },
 
   getters: {},
@@ -28,18 +28,17 @@ const houseStore = {
     CLEAR_GUGUN_LIST: (state) => {
       state.guguns = [{ value: null, text: "선택하세요" }];
     },
-    SET_HOUSE_LIST: (state, houses) => {
-      //   console.log(houses);
-      state.houses = houses;
+    SET_CCTV_LIST: (state, cctvs) => {
+      //console.log(cctvs);
+      state.cctvs = cctvs;
     },
-    SET_DETAIL_HOUSE: (state, house) => {
-      state.house = house;
+    SET_DETAIL_CCTV: (state, cctv) => {
+      state.cctv = cctv;
     },
   },
 
   actions: {
     getSido: ({ commit }) => {
-      console.log(1);
       sidoList(
         ({ data }) => {
           console.log(data);
@@ -65,8 +64,7 @@ const houseStore = {
         }
       );
     },
-    getHouseList: ({ commit }, gugunCode) => {
-      console.log(gugunCode);
+    getCctvList: ({ commit }, add) => {
       // vue cli enviroment variables 검색
       //.env.local file 생성.
       // 반드시 VUE_APP으로 시작해야 한다.
@@ -74,26 +72,28 @@ const houseStore = {
       const SERVICE_KEY =
         "ZKcqG6latvlKmqOl7UW7UZcg2wz0X67jnQS%2FK8TfXW5zM%2Fd8bRWr1mm8yj0ZgtMqU8L3RrLHUAZW92W%2FZvllRw%3D%3D";
       const params = {
-        LAWD_CD: gugunCode,
-        DEAL_YMD: "202110",
+        pageNo: "0",
+        numOfRows: "10",
+        institutionNm: add,
+        type: "json",
         serviceKey: decodeURIComponent(SERVICE_KEY),
       };
-      houseList(
+      cctvList(
         params,
         (response) => {
-          console.log(response);
-          commit("SET_HOUSE_LIST", response.data.response.body.items.item);
+          console.log(response.data.response.body.items);
+          commit("SET_CCTV_LIST", response.data.response.body.items);
         },
         (error) => {
           console.log(error);
         }
       );
     },
-    detailHouse: ({ commit }, house) => {
+    detailCctv: ({ commit }, cctv) => {
       // 나중에 house.일련번호를 이용하여 API 호출
-      commit("SET_DETAIL_HOUSE", house);
+      commit("SET_DETAIL_CCTV", cctv);
     },
   },
 };
 
-export default houseStore;
+export default cctvStore;

@@ -27,6 +27,12 @@
         편의점
       </li>
     </ul>
+    <br />
+    <input
+      placeholder="원하는 키워드를 입력하세요."
+      v-model="keyword"
+      @keyup.enter="searchKeyword"
+    /><button v-on:click="searchKeyword">검색</button>
   </div>
 </template>
 
@@ -39,9 +45,13 @@ export default {
       markers: [],
       currCategory: "",
       clist: ["BK9", "MT1", "PM9", "OL7", "CE7", "CS2"],
+      keyword: "",
     };
   },
   created() {},
+  updated() {
+    this.customOverlay.setMap(null);
+  },
   mounted() {
     if (window.kakao && window.kakao.maps) {
       this.initMap();
@@ -64,6 +74,43 @@ export default {
       this.map = new kakao.maps.Map(container, options);
       this.ps = new kakao.maps.services.Places(this.map);
       this.customOverlay = new kakao.maps.CustomOverlay({ zIndex: 1 });
+      this.infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+    },
+    searchKeyword() {
+      this.initMap();
+      this.ps.keywordSearch(this.keyword, this.placesSearchFood);
+    },
+    placesSearchFood(data, status) {
+      if (status === kakao.maps.services.Status.OK) {
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+        // LatLngBounds 객체에 좌표를 추가합니다
+        var bounds = new kakao.maps.LatLngBounds();
+
+        for (var i = 0; i < data.length; i++) {
+          this.displayFood(data[i]);
+          bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+        }
+
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+        this.map.setBounds(bounds);
+      }
+    },
+    displayFood(place) {
+      // 마커를 생성하고 지도에 표시합니다
+      var marker = new kakao.maps.Marker({
+        map: this.map,
+        position: new kakao.maps.LatLng(place.y, place.x),
+      });
+      // 마커에 클릭이벤트를 등록합니다
+      kakao.maps.event.addListener(marker, "click", () => {
+        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+        this.infowindow.setContent(
+          '<div style="padding:5px;font-size:12px;">' +
+            place.place_name +
+            "</div>"
+        );
+        this.infowindow.open(this.map, marker);
+      });
     },
     displayMarker(markerPositions) {
       if (this.markers.length > 0) {
@@ -137,8 +184,8 @@ export default {
         );
         // 마커와 검색결과 항목을 클릭 했을 때
         // 장소정보를 표출하도록 클릭 이벤트를 등록합니다
-        (function (marker, place, map, customOverlay) {
-          kakao.maps.event.addListener(marker, "click", function () {
+        ((marker, place, map) => {
+          kakao.maps.event.addListener(marker, "click", () => {
             console.log(place);
             var content =
               '<div class="placeinfo_wrap" style="position: absolute; bottom: 28pxleft: -150px; width: 300px">' +
@@ -179,14 +226,19 @@ export default {
               "</div>" +
               '<div class="after" style="content:"";position:relative;margin-left:-12px;left:50%;width:22px;height:12px;background:url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png")"></div>' +
               "</div>";
-            customOverlay = new kakao.maps.CustomOverlay({
-              position: new kakao.maps.LatLng(place.y, place.x),
-              content: content,
-              xAnchor: 0.3,
-              yAnchor: 0.91,
-            });
+            // customOverlay = new kakao.maps.CustomOverlay({
+            //   position: new kakao.maps.LatLng(place.y, place.x),
+            //   content: content,
+            //   xAnchor: 0.3,
+            //   yAnchor: 0.91,
+            // });
+            this.customOverlay.setPosition(
+              new kakao.maps.LatLng(place.y, place.x)
+            );
+            this.customOverlay.setContent(content);
+            console.log(this.customOverlay);
             console.log(content);
-            customOverlay.setMap(map);
+            this.customOverlay.setMap(map);
           });
         })(marker, places[i], this.map);
       }

@@ -52,6 +52,11 @@
               COMMERCIAL</router-link
             ></b-nav-item
           >
+          <b-nav-item href="#"
+            ><router-link :to="{ name: 'Cctv' }" class="link">
+              CCTV</router-link
+            ></b-nav-item
+          >
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto" v-if="userInfo">
           <b-nav-item class="align-self-center">

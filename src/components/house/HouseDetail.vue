@@ -66,12 +66,12 @@ export default {
       markerPositions1: [],
       markers: [],
       infowindow: null,
-      xy: null,
     };
   },
   updated() {
+    this.initMap();
     this.add = this.house.법정동 + " " + this.house.지번;
-    console.log(this.add);
+    this.apt = this.house.아파트;
     this.geocoder = new kakao.maps.services.Geocoder();
     this.geocoder.addressSearch(this.add, (result, status) => {
       // 정상적으로 검색이 완료됐으면
@@ -84,7 +84,9 @@ export default {
         });
         var infowindow = new kakao.maps.InfoWindow({
           content:
-            '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>',
+            '<div style="width:150px;text-align:center;padding:6px 0;">' +
+            this.apt +
+            "</div>",
         });
         infowindow.open(this.map, marker);
         this.map.setCenter(coords);

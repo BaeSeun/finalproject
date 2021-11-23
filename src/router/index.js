@@ -21,6 +21,7 @@ import AnswerDelete from "@/components/board/AnswerDelete.vue";
 
 import House from "@/views/House.vue";
 import Commercial from "@/views/Commercial.vue";
+import Cctv from "@/views/Cctv.vue";
 import News from "@/views/News.vue";
 
 import store from "@/store/index.js";
@@ -140,6 +141,11 @@ const routes = [
     path: "/commercial",
     name: "Commercial",
     component: Commercial,
+  },
+  {
+    path: "/cctv",
+    name: "Cctv",
+    component: Cctv,
   },
   {
     path: "/memo",

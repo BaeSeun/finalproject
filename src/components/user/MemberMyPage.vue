@@ -102,7 +102,7 @@ export default {
 
 a.router-link {
   text-decoration: none !important;
-  color : black;
+  color: black;
 }
 a:hover {
   text-decoration: none !important;
@@ -120,16 +120,15 @@ a.router-link-active {
   font-weight: bold;
 }
 a {
-  color:white !important;
+  color: white !important;
   text-decoration: none !important;
 }
 
-.link{
-  color:white !important;
+.link {
+  color: white !important;
 }
 
-.link:hover{
-  color:white !important;
+.link:hover {
+  color: white !important;
 }
-
 </style>

@@ -29,6 +29,7 @@
               v-for="(article, index) in articles"
               :key="index"
               v-bind="article"
+              v-bind:index="index"
             />
           </tbody>
         </b-table-simple>
