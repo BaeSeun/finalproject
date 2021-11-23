@@ -287,7 +287,7 @@ ul {
 }
 #category {
   position: absolute;
-  top: 200px;
+  top: 230px;
   left: 40px;
   width: 305px;
   border-radius: 5px;

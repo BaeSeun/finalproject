@@ -1,13 +1,14 @@
 <template>
   <b-container class="bv-example-row mt-3">
-    <b-row>
-      <b-col>
-        <b-alert show><h3>질문 보기</h3></b-alert>
-      </b-col>
-    </b-row>
+    <img
+      src="@/assets/boardviewimg1.png"
+      class="d-inline-block align-middle"
+      width="500px"
+      alt="Kitten"
+    />
     <b-row class="mb-1">
       <b-col class="text-left">
-        <b-button variant="info" @click="listArticle">목록</b-button>
+        <b-button variant="success" @click="listArticle">목록</b-button>
       </b-col>
       <b-col class="text-right">
         <b-button

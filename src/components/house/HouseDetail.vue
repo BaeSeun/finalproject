@@ -10,39 +10,36 @@
         <div id="map"></div>
       </div>
     </b-row>
+    <img
+      src="@/assets/aptdetailimg1.png"
+      class="d-inline-block align-left"
+      width="500px"
+      alt="Kitten"
+    />
     <b-row>
-      <b-col>
-        <b-alert show variant="secondary"
-          >일련번호 : {{ house.일련번호 }}</b-alert
-        >
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col>
-        <b-alert show variant="primary"
-          >아파트 이름 : {{ house.아파트 }}
-        </b-alert>
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col>
-        <b-alert show variant="info">법정동 : {{ house.법정동 }} </b-alert>
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col>
-        <b-alert show variant="warning">층수 : {{ house.층 }}층</b-alert>
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col>
-        <b-alert show variant="danger"
-          >거래금액 :
-          {{
+      <table class="table table-bordered">
+        <thead>
+        <tr class="table-success">
+          <th scope="col">일련번호</th>
+          <th scope="col">법정동</th>
+          <th scope="col">층수</th>
+          <th scope="col">거래금액</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">{{ house.일련번호 }}</th>
+          <td>{{ house.법정동 }}</td>
+          <td>{{ house.층 }}층</td>
+          <td>{{
             (parseInt(house.거래금액.replace(",", "")) * 10000) | price
-          }}원</b-alert
-        >
-      </b-col>
+              }}원
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </b-row>
+    <b-row>
     </b-row>
   </b-container>
 </template>
