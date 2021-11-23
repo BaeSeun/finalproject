@@ -25,6 +25,7 @@ import News from "@/views/News.vue";
 
 import store from "@/store/index.js";
 
+
 Vue.use(VueRouter);
 // https://router.vuejs.org/kr/guide/advanced/navigation-guards.html
 const onlyAuthUser = async (to, from, next) => {

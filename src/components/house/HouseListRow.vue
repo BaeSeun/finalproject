@@ -9,12 +9,12 @@
     <b-col cols="2" class="text-center align-self-center">
       <b-img
         thumbnail
-        src="https://picsum.photos/250/250/?image=58"
-        alt="Image 1"
+        src="https://shop2.daumcdn.net/thumb/R500x500/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FG14602628029.jpg%3Fut%3D20210915092251"
+        alt="HouseImg"
       ></b-img>
     </b-col>
     <b-col cols="10" class="align-self-center">
-      [{{ house.일련번호 }}] {{ house.아파트 }}
+      {{ house.아파트 }}
     </b-col>
   </b-row>
 </template>

@@ -52,6 +52,7 @@
               COMMERCIAL</router-link
             ></b-nav-item
           >
+          
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto" v-if="userInfo">
           <b-nav-item class="align-self-center">
@@ -124,10 +125,9 @@ export default {
 .nav-custom {
   background-image: url("wood.jpeg");
   background-size: cover;
-}
 
+}
 .nav-item{
   color:green !important;
 }
-
 </style>

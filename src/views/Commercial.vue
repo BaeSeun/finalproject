@@ -1,4 +1,4 @@
-<template class="tofont">
+<template>
   <b-container class="bv-example-row mt-3 text-center">
     <b-row>
       <b-col></b-col>
@@ -6,14 +6,12 @@
         <b-jumbotron class="jumbo" text-variant="dark" border-variant="white">
           <template #header>
             <img
-              src="@/assets/homeimg1.png"
+              src="@/assets/commercialimg1.png"
               class="d-inline-block align-middle"
-              width="100px"
+              width="600px"
               alt="Kitten"
             />
           </template>
-
-          <template #lead> 상권정보 페이지 입니다. <br /> </template>
           <CommercialMap />
         </b-jumbotron>
       </b-col>
@@ -37,9 +35,7 @@ export default {
 
 <style scoped>
 .jumbo {
-  background-color: #faed7d;
+  background-color: #ffd9e7;
 }
-.tofont {
-  font-family: "Jua", sans-serif;
-}
+
 </style>
