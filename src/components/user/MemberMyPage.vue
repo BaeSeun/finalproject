@@ -99,7 +99,37 @@ export default {
 .jumbo {
   background-color: rgb(255, 211, 211);
 }
-.a {
+
+a.router-link {
+  text-decoration: none !important;
+  color : black;
+}
+a:hover {
+  text-decoration: none !important;
+  font-weight: bold;
+}
+
+a.router-link-exact-active {
+  color: #24ad1a !important;
+  font-weight: bold;
+}
+
+a.router-link-active {
+  color: #24ad1a !important;
+  text-decoration: none !important;
+  font-weight: bold;
+}
+a {
+  color:white !important;
   text-decoration: none !important;
 }
+
+.link{
+  color:white !important;
+}
+
+.link:hover{
+  color:white !important;
+}
+
 </style>

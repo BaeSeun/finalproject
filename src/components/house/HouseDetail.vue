@@ -87,6 +87,7 @@ export default {
             '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>',
         });
         infowindow.open(this.map, marker);
+        this.map.setCenter(coords);
       }
     });
   },
