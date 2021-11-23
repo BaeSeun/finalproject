@@ -20,6 +20,7 @@ import BoardDelete from "@/components/board/BoardDelete.vue";
 import AnswerDelete from "@/components/board/AnswerDelete.vue";
 
 import House from "@/views/House.vue";
+import Commercial from "@/views/Commercial.vue";
 import News from "@/views/News.vue";
 
 import store from "@/store/index.js";
@@ -134,6 +135,11 @@ const routes = [
     path: "/house",
     name: "House",
     component: House,
+  },
+  {
+    path: "/commercial",
+    name: "Commercial",
+    component: Commercial,
   },
   {
     path: "/memo",

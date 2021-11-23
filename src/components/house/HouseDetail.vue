@@ -47,7 +47,6 @@
   </b-container>
 </template>
 
-
 <script>
 import { mapState } from "vuex";
 
@@ -70,6 +69,28 @@ export default {
       xy: null,
     };
   },
+  updated() {
+    this.add = this.house.법정동 + " " + this.house.지번;
+    console.log(this.add);
+    this.geocoder = new kakao.maps.services.Geocoder();
+    this.geocoder.addressSearch(this.add, (result, status) => {
+      // 정상적으로 검색이 완료됐으면
+      if (status === kakao.maps.services.Status.OK) {
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+        this.markerPositions1.push(coords);
+        var marker = new kakao.maps.Marker({
+          map: this.map,
+          position: coords,
+        });
+        var infowindow = new kakao.maps.InfoWindow({
+          content:
+            '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>',
+        });
+        infowindow.open(this.map, marker);
+        this.map.setCenter(coords);
+      }
+    });
+  },
   mounted() {
     if (window.kakao && window.kakao.maps) {
       this.initMap();
@@ -90,7 +111,6 @@ export default {
         level: 5,
       };
       this.map = new kakao.maps.Map(container, options);
-
       this.geocoder = new kakao.maps.services.Geocoder();
       this.geocoder.addressSearch(house.법정동+house.지번, (result, status) => {
         // 정상적으로 검색이 완료됐으면
@@ -137,6 +157,7 @@ export default {
 
         this.map.setBounds(bounds);
       }
+1
     },
   },
   filters: {
@@ -147,7 +168,6 @@ export default {
   },
 };
 </script>
-
 
 <style>
 #map {
