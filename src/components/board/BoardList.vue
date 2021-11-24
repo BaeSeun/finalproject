@@ -35,6 +35,7 @@
             />
           </tbody> </b-table-simple
         ><b-pagination
+          align="center"
           v-model="currentPage"
           :total-rows="rows"
           :per-page="perPage"

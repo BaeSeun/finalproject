@@ -7,14 +7,12 @@
       alt="Kitten"
     />
 
-    <b-row>
+    <b-row class="align-middle">
       <b-col></b-col>
-
-      <b-col cols="8">
+      <b-col cols="5">
         <b-card
-          class="text-center mt-3 bg-transparent border-0"
-          style="max-width: 50rem"
-          align="left"
+          class="text-center mt-3 bg-transparent border-0 align-middle"
+          style="max-width: 30rem"
         >
           <b-form class="text-left">
             <b-alert show variant="danger" v-if="isLoginError"

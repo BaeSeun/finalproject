@@ -1,77 +1,84 @@
 <template>
-  <b-row class="mb-1">
-    <b-col style="text-align: left">
-      <b-form @submit="onSubmit" @reset="onReset">
-        <b-form-group
-          id="userid-group"
-          label="아이디"
-          label-for="userid"
-          description="아이디를 입력하세요."
-        >
-          <b-form-input
-            id="userid"
-            :disabled="isUserid"
-            v-model="user.userid"
-            type="text"
-            required
-            placeholder="아이디를 입력하세요."
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group
-          id="username-group"
-          label="이름"
-          label-for="username"
-          description="이름을 입력하세요."
-        >
-          <b-form-input
-            id="username"
-            v-model="user.username"
-            type="text"
-            required
-            placeholder="이름을 입력하세요."
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group
-          id="userpwd-group"
-          label="비밀번호"
-          label-for="userpwd"
-          description="비밀번호를 입력하세요."
-        >
-          <b-form-input
-            id="userpwd"
-            v-model="user.userpwd"
-            type="password"
-            required
-            placeholder="비밀번호를 입력하세요."
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group
-          id="email-group"
-          label="이메일"
-          label-for="email"
-          description="이메일을 입력하세요."
-        >
-          <b-form-input
-            id="email"
-            v-model="user.email"
-            type="text"
-            required
-            placeholder="이메일을 입력하세요."
-          ></b-form-input>
-        </b-form-group>
-        <b-col class="text-center">
-          <b-button type="submit" variant="dark" class="m-1" align="center"
-            >가입</b-button
+  <b-row class="align-middle">
+    <b-col></b-col>
+    <b-col cols="5">
+      <b-card
+        class="text-center mt-3 bg-transparent border-0 align-middle"
+        style="max-width: 30rem"
+      >
+        <b-form @submit="onSubmit" @reset="onReset" class="text-left">
+          <b-form-group
+            id="userid-group"
+            label="아이디"
+            label-for="userid"
+            description="아이디를 입력하세요."
           >
-          <b-button type="reset" variant="dark" class="m-1" align="center"
-            >초기화</b-button
+            <b-form-input
+              id="userid"
+              :disabled="isUserid"
+              v-model="user.userid"
+              type="text"
+              required
+              placeholder="아이디를 입력하세요."
+            ></b-form-input>
+          </b-form-group>
+
+          <b-form-group
+            id="username-group"
+            label="이름"
+            label-for="username"
+            description="이름을 입력하세요."
           >
-        </b-col>
-      </b-form>
+            <b-form-input
+              id="username"
+              v-model="user.username"
+              type="text"
+              required
+              placeholder="이름을 입력하세요."
+            ></b-form-input>
+          </b-form-group>
+
+          <b-form-group
+            id="userpwd-group"
+            label="비밀번호"
+            label-for="userpwd"
+            description="비밀번호를 입력하세요."
+          >
+            <b-form-input
+              id="userpwd"
+              v-model="user.userpwd"
+              type="password"
+              required
+              placeholder="비밀번호를 입력하세요."
+            ></b-form-input>
+          </b-form-group>
+
+          <b-form-group
+            id="email-group"
+            label="이메일"
+            label-for="email"
+            description="이메일을 입력하세요."
+          >
+            <b-form-input
+              id="email"
+              v-model="user.email"
+              type="text"
+              required
+              placeholder="이메일을 입력하세요."
+            ></b-form-input>
+          </b-form-group>
+          <b-col class="text-center">
+            <b-button type="submit" variant="dark" class="m-1" align="center"
+              >가입</b-button
+            >
+            <b-button type="reset" variant="dark" class="m-1" align="center"
+              >초기화</b-button
+            >
+          </b-col>
+        </b-form>
+      </b-card>
     </b-col>
+    <b-col></b-col>
   </b-row>
 </template>
 
