@@ -71,7 +71,7 @@
           </b-form-group>
           <b-col class="text-center">
             <b-button type="submit" variant="dark" class="m-1" align="center"
-              >가입</b-button
+              >수정</b-button
             >
             <b-button type="reset" variant="dark" class="m-1" align="center"
               >초기화</b-button

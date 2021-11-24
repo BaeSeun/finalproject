@@ -1,7 +1,7 @@
 <template>
   <b-container class="bv-example-row mt-3">
     <img
-      src="@/assets/qnaimg1.png"
+      src="@/assets/cctvimg1.png"
       class="d-inline-block align-middle"
       width="700px"
       alt="Kitten"
