@@ -24,6 +24,14 @@
     </b-row>
     <b-row>
       <b-col>
+        <!-- 추가한 코드 -->
+        <b-pagination
+        v-model="currentPage"
+        :total-rows="rows"
+        :per-page="perPage"
+        aria-controls="my-table"
+        ></b-pagination>
+
         <b-table-simple hover responsive>
           <b-thead head-variant="dark">
             <b-tr>
@@ -35,7 +43,7 @@
           </b-thead>
           <tbody>
             <cctv-list-row
-              v-for="(cctv, index) in cctvs"
+              v-for="(cctv, index) in itemsForList"
               :key="index"
               v-bind="cctv"
             />
@@ -59,6 +67,8 @@ export default {
       gugunName: "",
       sidoCode: null,
       gugunCode: null,
+      perPage : 3,
+      currentPage : 1,
     };
   },
   components: {
@@ -66,6 +76,15 @@ export default {
   },
   computed: {
     ...mapState(cctvStore, ["cctvs", "sidos", "guguns"]),
+    rows() {
+      return this.cctvs.length
+    },
+    itemsForList() {
+      return this.cctvs.slice(
+        (this.currentPage - 1) * this.perPage,
+        this.currentPage * this.perPage
+      );
+    },
   },
   created() {
     this.CLEAR_SIDO_LIST();
