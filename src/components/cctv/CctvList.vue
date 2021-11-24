@@ -8,6 +8,12 @@
     />
     <b-row class="mb-1">
       <b-col class="sm-3">
+        <img
+        src="@/assets/aptinfoimg2.png"
+        class="align-left"
+        width="100px"
+        alt="Kitten"
+      />
         <b-form-select
           v-model="sidoCode"
           :options="sidos"
@@ -15,6 +21,12 @@
         ></b-form-select>
       </b-col>
       <b-col class="sm-3">
+        <img
+        src="@/assets/aptinfoimg3.png"
+        class="align-left"
+        width="100px"
+        alt="Kitten"
+      />
         <b-form-select
           v-model="gugunCode"
           :options="guguns"
@@ -24,17 +36,6 @@
     </b-row>
     <b-row>
       <b-col>
-<<<<<<< HEAD
-        <!-- 추가한 코드 -->
-        <b-pagination
-        v-model="currentPage"
-        :total-rows="rows"
-        :per-page="perPage"
-        aria-controls="my-table"
-        ></b-pagination>
-
-        <b-table-simple hover responsive>
-=======
         <!-- <b-table-simple hover responsive>
 >>>>>>> 49593d3af76844ee61f34dc205966dd1f31f22ab
           <b-thead head-variant="dark">
@@ -54,8 +55,8 @@
           </tbody>
         </b-table-simple> -->
         <b-table-simple hover responsive>
-          <b-thead head-variant="dark">
-            <b-tr>
+          <b-thead head-variant="success">
+            <b-tr class="table-success">
               <b-th>CCTV관리청</b-th>
               <b-th>CCTV위치</b-th>
               <b-th>관리 번호</b-th>
@@ -94,13 +95,8 @@ export default {
       gugunName: "",
       sidoCode: null,
       gugunCode: null,
-<<<<<<< HEAD
-      perPage : 3,
-      currentPage : 1,
-=======
       perPage: 3,
       currentPage: 1,
->>>>>>> 49593d3af76844ee61f34dc205966dd1f31f22ab
     };
   },
   components: {
@@ -109,11 +105,7 @@ export default {
   computed: {
     ...mapState(cctvStore, ["cctvs", "sidos", "guguns"]),
     rows() {
-<<<<<<< HEAD
-      return this.cctvs.length
-=======
       return this.cctvs.length;
->>>>>>> 49593d3af76844ee61f34dc205966dd1f31f22ab
     },
     itemsForList() {
       return this.cctvs.slice(

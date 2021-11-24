@@ -19,6 +19,7 @@
         </b-form-group>
 
         <b-form-group
+          class="w-25"
           id="username-group"
           label="이름"
           label-for="username"
