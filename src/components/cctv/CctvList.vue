@@ -32,12 +32,11 @@
               <b-th>관리 번호</b-th>
               <b-th>설치년도</b-th>
             </b-tr>
-            <b-tr v-for="(cctv, index) in cctvs" :key="index">
-              <b-td>{{ cctv.institutionNm }}</b-td>
-              <b-td>{{ cctv.lnmadr }}</b-td>
-              <b-td>{{ cctv.phoneNumber }}</b-td>
-              <b-td>{{ cctv.installationYymm }}</b-td>
-            </b-tr>
+            <cctv-list-row
+              v-for="(cctv, index) in cctvs"
+              :key="index"
+              v-bind="cctv"
+            />
           </b-thead>
           <tbody></tbody>
         </b-table-simple>
@@ -49,6 +48,7 @@
 
 <script>
 import { mapActions, mapMutations, mapState } from "vuex";
+import CctvListRow from "@/components/cctv/CctvListRow";
 const cctvStore = "cctvStore";
 export default {
   name: "CctvList",
@@ -59,6 +59,9 @@ export default {
       sidoCode: null,
       gugunCode: null,
     };
+  },
+  components: {
+    CctvListRow,
   },
   computed: {
     ...mapState(cctvStore, ["cctvs", "sidos", "guguns"]),
