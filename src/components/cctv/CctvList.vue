@@ -111,9 +111,8 @@ export default {
     },
     displayCCTV(cctv) {
       // 마커를 생성하고 지도에 표시합니다
-      var imageSrc =
-        "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
-      var imageSize = new kakao.maps.Size(24, 35);
+      var imageSrc = "https://cdn-icons-png.flaticon.com/512/3583/3583045.png";
+      var imageSize = new kakao.maps.Size(24, 24);
       var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
       var marker = new kakao.maps.Marker({
         map: this.map,
