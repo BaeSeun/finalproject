@@ -1,6 +1,15 @@
 <template>
   <div>
+    <div>
+    <input
+      placeholder="원하는 키워드를 입력하세요."
+      v-model="keyword"
+      @keyup.enter="searchKeyword"
+    /><button v-on:click="searchKeyword">검색</button>
+    </div>
+    <br />
     <div id="map"></div>
+    
     <ul id="category">
       <li id="BK9" data-order="0" @click="onClickCategory(clist[0])">
         <span class="category_bg bank"></span>
@@ -28,11 +37,7 @@
       </li>
     </ul>
     <br />
-    <input
-      placeholder="원하는 키워드를 입력하세요."
-      v-model="keyword"
-      @keyup.enter="searchKeyword"
-    /><button v-on:click="searchKeyword">검색</button>
+    
   </div>
 </template>
 
@@ -288,7 +293,7 @@ ul {
 }
 #category {
   position: absolute;
-  top: 230px;
+  top: 280px;
   left: 40px;
   width: 305px;
   border-radius: 5px;
