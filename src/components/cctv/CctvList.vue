@@ -8,6 +8,12 @@
     />
     <b-row class="mb-1">
       <b-col class="sm-3">
+        <img
+        src="@/assets/aptinfoimg2.png"
+        class="align-left"
+        width="100px"
+        alt="Kitten"
+      />
         <b-form-select
           v-model="sidoCode"
           :options="sidos"
@@ -15,6 +21,12 @@
         ></b-form-select>
       </b-col>
       <b-col class="sm-3">
+        <img
+        src="@/assets/aptinfoimg3.png"
+        class="align-left"
+        width="100px"
+        alt="Kitten"
+      />
         <b-form-select
           v-model="gugunCode"
           :options="guguns"
@@ -25,6 +37,7 @@
     <b-row>
       <b-col>
         <!-- <b-table-simple hover responsive>
+>>>>>>> 49593d3af76844ee61f34dc205966dd1f31f22ab
           <b-thead head-variant="dark">
             <b-tr>
               <b-th>CCTV관리청</b-th>
@@ -35,15 +48,15 @@
           </b-thead>
           <tbody>
             <cctv-list-row
-              v-for="(cctv, index) in cctvs"
+              v-for="(cctv, index) in itemsForList"
               :key="index"
               v-bind="cctv"
             />
           </tbody>
         </b-table-simple> -->
         <b-table-simple hover responsive>
-          <b-thead head-variant="dark">
-            <b-tr>
+          <b-thead head-variant="success">
+            <b-tr class="table-success">
               <b-th>CCTV관리청</b-th>
               <b-th>CCTV위치</b-th>
               <b-th>관리 번호</b-th>

@@ -14,8 +14,8 @@
     <b-row>
       <b-col v-if="articles.length">
         <b-table-simple hover responsive>
-          <b-thead head-variant="dark">
-            <b-tr>
+          <b-thead head-variant="success">
+            <b-tr class="table-success">
               <b-th>글번호</b-th>
               <b-th>제목</b-th>
               <b-th>조회수</b-th>

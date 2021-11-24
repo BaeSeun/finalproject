@@ -40,7 +40,7 @@
     </b-row>
     <b-col v-if="answer">
       <b-table-simple hover responsive v-if="show">
-        <b-thead head-variant="dark">
+        <b-thead class="table-success">
           <b-tr>
             <b-th>작성자</b-th>
             <b-th>답변</b-th>
