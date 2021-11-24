@@ -32,16 +32,17 @@
               <b-th>관리 번호</b-th>
               <b-th>설치년도</b-th>
             </b-tr>
+          </b-thead>
+          <tbody>
             <cctv-list-row
               v-for="(cctv, index) in cctvs"
               :key="index"
               v-bind="cctv"
             />
-          </b-thead>
-          <tbody></tbody>
+          </tbody>
         </b-table-simple>
       </b-col>
-      <!-- <b-col v-else class="text-center">도서 목록이 없습니다.</b-col> -->
+      <div id="map"></div>
     </b-row>
   </b-container>
 </template>
@@ -70,8 +71,58 @@ export default {
     this.CLEAR_SIDO_LIST();
     this.getSido();
   },
-  mounted() {},
+  mounted() {
+    if (window.kakao && window.kakao.maps) {
+      this.initMap();
+    } else {
+      const script = document.createElement("script");
+      /* global kakao */
+      script.onload = () => kakao.maps.load(this.initMap);
+      script.src =
+        "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=edb8fd787effaa06e51047e32092b808&libraries=services";
+      document.head.appendChild(script);
+    }
+  },
+  updated() {
+    this.initMap();
+    this.seachCctv(this.cctvs);
+  },
   methods: {
+    initMap() {
+      const container = document.getElementById("map");
+      const options = {
+        center: new kakao.maps.LatLng(37.566826, 126.9786567),
+        level: 5,
+      };
+      this.map = new kakao.maps.Map(container, options);
+      this.ps = new kakao.maps.services.Places(this.map);
+      this.customOverlay = new kakao.maps.CustomOverlay({ zIndex: 1 });
+      this.infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+    },
+    seachCctv(data) {
+      var bounds = new kakao.maps.LatLngBounds();
+      for (var i = 0; i < data.length; i++) {
+        this.displayCCTV(data[i]);
+        bounds.extend(
+          new kakao.maps.LatLng(data[i].latitude, data[i].longitude)
+        );
+      }
+      this.map.setBounds(bounds);
+    },
+    displayCCTV(cctv) {
+      // 마커를 생성하고 지도에 표시합니다
+      var imageSrc =
+        "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+      var imageSize = new kakao.maps.Size(24, 35);
+      var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+      var marker = new kakao.maps.Marker({
+        map: this.map,
+        position: new kakao.maps.LatLng(cctv.latitude, cctv.longitude),
+        image: markerImage,
+      });
+      marker.setMap(this.map);
+      console.log(marker);
+    },
     ...mapActions(cctvStore, [
       "getSido",
       "getGugun",
@@ -118,5 +169,9 @@ export default {
 }
 .table {
   background-color: white;
+}
+#map {
+  width: 850px;
+  height: 400px;
 }
 </style>

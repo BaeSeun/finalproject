@@ -73,7 +73,7 @@ const cctvStore = {
         "ZKcqG6latvlKmqOl7UW7UZcg2wz0X67jnQS%2FK8TfXW5zM%2Fd8bRWr1mm8yj0ZgtMqU8L3RrLHUAZW92W%2FZvllRw%3D%3D";
       const params = {
         pageNo: "0",
-        numOfRows: "10",
+        numOfRows: "40",
         institutionNm: add,
         type: "json",
         serviceKey: decodeURIComponent(SERVICE_KEY),

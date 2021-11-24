@@ -4,10 +4,8 @@
       <b-col></b-col>
       <b-col cols="10">
         <b-jumbotron class="jumbo" text-variant="dark" border-variant="white">
-          <template #header>
-          </template>
+          <template #header> </template>
 
-          
           <cctv-list />
         </b-jumbotron>
       </b-col>

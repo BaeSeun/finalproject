@@ -12,11 +12,11 @@
     </b-col> -->
     <b-col class="sm-3">
       <img
-      src="@/assets/aptinfoimg2.png"
-      class="align-left"
-      width="100px"
-      alt="Kitten"
-    />
+        src="@/assets/aptinfoimg2.png"
+        class="align-left"
+        width="100px"
+        alt="Kitten"
+      />
       <b-form-select
         v-model="sidoCode"
         :options="sidos"
@@ -25,11 +25,11 @@
     </b-col>
     <b-col class="sm-3">
       <img
-      src="@/assets/aptinfoimg3.png"
-      class="d-inline-block align-left"
-      width="100px"
-      alt="Kitten"
-    />
+        src="@/assets/aptinfoimg3.png"
+        class="d-inline-block align-left"
+        width="100px"
+        alt="Kitten"
+      />
       <b-form-select
         v-model="gugunCode"
         :options="guguns"

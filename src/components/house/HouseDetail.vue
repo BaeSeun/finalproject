@@ -19,28 +19,28 @@
     <b-row>
       <table class="table table-bordered">
         <thead>
-        <tr class="table-success">
-          <th scope="col">일련번호</th>
-          <th scope="col">법정동</th>
-          <th scope="col">층수</th>
-          <th scope="col">거래금액</th>
-        </tr>
+          <tr class="table-success">
+            <th scope="col">일련번호</th>
+            <th scope="col">법정동</th>
+            <th scope="col">층수</th>
+            <th scope="col">거래금액</th>
+          </tr>
         </thead>
         <tbody>
-        <tr>
-          <th scope="row">{{ house.일련번호 }}</th>
-          <td>{{ house.법정동 }}</td>
-          <td>{{ house.층 }}층</td>
-          <td>{{
-            (parseInt(house.거래금액.replace(",", "")) * 10000) | price
+          <tr>
+            <th scope="row">{{ house.일련번호 }}</th>
+            <td>{{ house.법정동 }}</td>
+            <td>{{ house.층 }}층</td>
+            <td>
+              {{
+                (parseInt(house.거래금액.replace(",", "")) * 10000) | price
               }}원
-          </td>
-        </tr>
+            </td>
+          </tr>
         </tbody>
       </table>
     </b-row>
-    <b-row>
-    </b-row>
+    <b-row> </b-row>
   </b-container>
 </template>
 

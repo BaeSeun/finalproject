@@ -95,6 +95,7 @@ export default {
         this.map.setBounds(bounds);
       }
     },
+
     displayFood(place) {
       // 마커를 생성하고 지도에 표시합니다
       var marker = new kakao.maps.Marker({

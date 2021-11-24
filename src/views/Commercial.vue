@@ -37,5 +37,4 @@ export default {
 .jumbo {
   background-color: #ffd9e7;
 }
-
 </style>
