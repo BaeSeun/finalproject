@@ -1,6 +1,6 @@
 <template>
   <b-tr>
-    <b-td>{{ index + 1 }}</b-td>
+    <b-td>{{ index + currentPage * perPage - 2 }}</b-td>
     <b-th class="text-left">
       <router-link
         :to="{ name: 'BoardView', params: { articleno: articleno } }"
@@ -25,6 +25,8 @@ export default {
     subject: String,
     hit: Number,
     regtime: String,
+    currentPage: Number,
+    perPage: Number,
   },
   computed: {
     // changeDateFormat() {

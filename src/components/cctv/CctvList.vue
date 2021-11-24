@@ -24,7 +24,7 @@
     </b-row>
     <b-row>
       <b-col>
-        <b-table-simple hover responsive>
+        <!-- <b-table-simple hover responsive>
           <b-thead head-variant="dark">
             <b-tr>
               <b-th>CCTV관리청</b-th>
@@ -40,7 +40,30 @@
               v-bind="cctv"
             />
           </tbody>
+        </b-table-simple> -->
+        <b-table-simple hover responsive>
+          <b-thead head-variant="dark">
+            <b-tr>
+              <b-th>CCTV관리청</b-th>
+              <b-th>CCTV위치</b-th>
+              <b-th>관리 번호</b-th>
+              <b-th>설치년도</b-th>
+            </b-tr>
+          </b-thead>
+          <tbody>
+            <cctv-list-row
+              v-for="(cctv, index) in itemsForList"
+              :key="index"
+              v-bind="cctv"
+            />
+          </tbody>
         </b-table-simple>
+        <b-pagination
+          v-model="currentPage"
+          :total-rows="rows"
+          :per-page="perPage"
+          aria-controls="my-table"
+        ></b-pagination>
       </b-col>
       <div id="map"></div>
     </b-row>
@@ -59,6 +82,8 @@ export default {
       gugunName: "",
       sidoCode: null,
       gugunCode: null,
+      perPage: 3,
+      currentPage: 1,
     };
   },
   components: {
@@ -66,6 +91,15 @@ export default {
   },
   computed: {
     ...mapState(cctvStore, ["cctvs", "sidos", "guguns"]),
+    rows() {
+      return this.cctvs.length;
+    },
+    itemsForList() {
+      return this.cctvs.slice(
+        (this.currentPage - 1) * this.perPage,
+        this.currentPage * this.perPage
+      );
+    },
   },
   created() {
     this.CLEAR_SIDO_LIST();
@@ -117,10 +151,10 @@ export default {
       var marker = new kakao.maps.Marker({
         map: this.map,
         position: new kakao.maps.LatLng(cctv.latitude, cctv.longitude),
+        title: cctv.lnmadr,
         image: markerImage,
       });
       marker.setMap(this.map);
-      console.log(marker);
     },
     ...mapActions(cctvStore, [
       "getSido",
