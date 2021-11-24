@@ -1,10 +1,16 @@
 <template>
   <b-container v-if="houses && houses.length != 0" class="bv-example-row mt-3">
     <house-list-row
-      v-for="(house, index) in houses"
+      v-for="(house, index) in itemsForList"
       :key="index"
       :house="house"
     />
+    <b-pagination
+      v-model="currentPage"
+      :total-rows="rows"
+      :per-page="perPage"
+      aria-controls="my-table"
+    ></b-pagination>
   </b-container>
   <b-container v-else class="bv-example-row mt-3">
     <b-row>
@@ -25,16 +31,22 @@ export default {
     HouseListRow,
   },
   data() {
-    return {};
-  },
-  mounted() {
-    console.log(this.houses);
+    return { perPage: 5, currentPage: 1 };
   },
   computed: {
     ...mapState(houseStore, ["houses"]),
     // houses() {
     //   return this.$store.state.houses;
     // },
+    rows() {
+      return this.houses.length;
+    },
+    itemsForList() {
+      return this.houses.slice(
+        (this.currentPage - 1) * this.perPage,
+        this.currentPage * this.perPage
+      );
+    },
   },
 };
 </script>

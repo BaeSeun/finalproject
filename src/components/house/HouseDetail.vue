@@ -7,7 +7,7 @@
     </b-row>
     <b-row class="mb-2 mt-1">
       <div>
-        <div id="map"></div>
+        <div id="map2"></div>
       </div>
     </b-row>
     <img
@@ -104,7 +104,7 @@ export default {
   },
   methods: {
     initMap() {
-      const container = document.getElementById("map");
+      const container = document.getElementById("map2");
       const options = {
         center: new kakao.maps.LatLng(33.450701, 126.570667),
         level: 5,
@@ -122,7 +122,7 @@ export default {
 </script>
 
 <style>
-#map {
+#map2 {
   width: 540px;
   height: 400px;
 }

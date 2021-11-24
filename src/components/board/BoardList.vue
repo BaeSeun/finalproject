@@ -26,13 +26,20 @@
           <tbody>
             <!-- 하위 component인 ListRow에 데이터 전달(props) -->
             <board-list-row
-              v-for="(article, index) in articles"
+              v-for="(article, index) in itemsForList"
               :key="index"
               v-bind="article"
               v-bind:index="index"
+              :per-page="perPage"
+              :current-page="currentPage"
             />
-          </tbody>
-        </b-table-simple>
+          </tbody> </b-table-simple
+        ><b-pagination
+          v-model="currentPage"
+          :total-rows="rows"
+          :per-page="perPage"
+          aria-controls="my-table"
+        ></b-pagination>
       </b-col>
       <!-- <b-col v-else class="text-center">도서 목록이 없습니다.</b-col> -->
     </b-row>
@@ -51,7 +58,20 @@ export default {
   data() {
     return {
       articles: [],
+      perPage: 3,
+      currentPage: 1,
     };
+  },
+  computed: {
+    rows() {
+      return this.articles.length;
+    },
+    itemsForList() {
+      return this.articles.slice(
+        (this.currentPage - 1) * this.perPage,
+        this.currentPage * this.perPage
+      );
+    },
   },
   created() {
     http.get(`/board`).then(({ data }) => {

@@ -24,6 +24,7 @@
     </b-row>
     <b-row>
       <b-col>
+<<<<<<< HEAD
         <!-- 추가한 코드 -->
         <b-pagination
         v-model="currentPage"
@@ -32,6 +33,26 @@
         aria-controls="my-table"
         ></b-pagination>
 
+        <b-table-simple hover responsive>
+=======
+        <!-- <b-table-simple hover responsive>
+>>>>>>> 49593d3af76844ee61f34dc205966dd1f31f22ab
+          <b-thead head-variant="dark">
+            <b-tr>
+              <b-th>CCTV관리청</b-th>
+              <b-th>CCTV위치</b-th>
+              <b-th>관리 번호</b-th>
+              <b-th>설치년도</b-th>
+            </b-tr>
+          </b-thead>
+          <tbody>
+            <cctv-list-row
+              v-for="(cctv, index) in itemsForList"
+              :key="index"
+              v-bind="cctv"
+            />
+          </tbody>
+        </b-table-simple> -->
         <b-table-simple hover responsive>
           <b-thead head-variant="dark">
             <b-tr>
@@ -49,6 +70,12 @@
             />
           </tbody>
         </b-table-simple>
+        <b-pagination
+          v-model="currentPage"
+          :total-rows="rows"
+          :per-page="perPage"
+          aria-controls="my-table"
+        ></b-pagination>
       </b-col>
       <div id="map"></div>
     </b-row>
@@ -67,8 +94,13 @@ export default {
       gugunName: "",
       sidoCode: null,
       gugunCode: null,
+<<<<<<< HEAD
       perPage : 3,
       currentPage : 1,
+=======
+      perPage: 3,
+      currentPage: 1,
+>>>>>>> 49593d3af76844ee61f34dc205966dd1f31f22ab
     };
   },
   components: {
@@ -77,7 +109,11 @@ export default {
   computed: {
     ...mapState(cctvStore, ["cctvs", "sidos", "guguns"]),
     rows() {
+<<<<<<< HEAD
       return this.cctvs.length
+=======
+      return this.cctvs.length;
+>>>>>>> 49593d3af76844ee61f34dc205966dd1f31f22ab
     },
     itemsForList() {
       return this.cctvs.slice(
@@ -136,10 +172,10 @@ export default {
       var marker = new kakao.maps.Marker({
         map: this.map,
         position: new kakao.maps.LatLng(cctv.latitude, cctv.longitude),
+        title: cctv.lnmadr,
         image: markerImage,
       });
       marker.setMap(this.map);
-      console.log(marker);
     },
     ...mapActions(cctvStore, [
       "getSido",

@@ -1,15 +1,15 @@
 <template>
   <div>
     <div>
-    <input
-      placeholder="원하는 키워드를 입력하세요."
-      v-model="keyword"
-      @keyup.enter="searchKeyword"
-    /><button v-on:click="searchKeyword">검색</button>
+      <input
+        placeholder="원하는 키워드를 입력하세요."
+        v-model="keyword"
+        @keyup.enter="searchKeyword"
+      /><button v-on:click="searchKeyword">검색</button>
     </div>
     <br />
     <div id="map"></div>
-    
+
     <ul id="category">
       <li id="BK9" data-order="0" @click="onClickCategory(clist[0])">
         <span class="category_bg bank"></span>
@@ -37,7 +37,6 @@
       </li>
     </ul>
     <br />
-    
   </div>
 </template>
 
@@ -155,7 +154,6 @@ export default {
       if (!this.currCategory) {
         return;
       }
-      console.log(this.customOverlay);
       // 커스텀 오버레이를 숨깁니다
       this.customOverlay.setMap(null);
       // 지도에 표시되고 있는 마커를 제거합니다
@@ -192,7 +190,6 @@ export default {
         // 장소정보를 표출하도록 클릭 이벤트를 등록합니다
         ((marker, place, map) => {
           kakao.maps.event.addListener(marker, "click", () => {
-            console.log(place);
             var content =
               '<div class="placeinfo_wrap" style="position: absolute; bottom: 28pxleft: -150px; width: 300px">' +
               '<div class="placeinfo" style="position:relative;width:100%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;">' +
@@ -242,8 +239,6 @@ export default {
               new kakao.maps.LatLng(place.y, place.x)
             );
             this.customOverlay.setContent(content);
-            console.log(this.customOverlay);
-            console.log(content);
             this.customOverlay.setMap(map);
           });
         })(marker, places[i], this.map);
