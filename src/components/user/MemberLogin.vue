@@ -12,7 +12,7 @@
       <b-col cols="5">
         <b-card
           class="text-center mt-3 bg-transparent border-0 align-middle"
-          style="max-width: 30rem"
+          style="max-width: 30rem height: 50px"
         >
           <b-form class="text-left">
             <b-alert show variant="danger" v-if="isLoginError"

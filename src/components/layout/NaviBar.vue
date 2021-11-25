@@ -60,8 +60,7 @@
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto" v-if="userInfo">
           <b-nav-item class="align-self-center">
-            {{ userInfo.username }}님
-            환영합니다.</b-nav-item
+            {{ userInfo.username }}님 환영합니다.</b-nav-item
           >
           <b-nav-item class="align-self-center"
             ><router-link
