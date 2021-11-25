@@ -79,7 +79,10 @@ export default {
           .filter((data) => {
             return data.subject.includes(this.searchName);
           })
-          .slice(0);
+          .slice(
+            (this.currentPage - 1) * this.perPage,
+            this.currentPage * this.perPage
+          );
       } else {
         return this.articles.slice(
           (this.currentPage - 1) * this.perPage,
