@@ -23,12 +23,18 @@
           <tbody>
             <!-- 하위 component인 ListRow에 데이터 전달(props) -->
             <member-list-row
-              v-for="(user, index) in users"
+              v-for="(user, index) in itemsForList"
               :key="index"
               v-bind="user"
             />
-          </tbody>
-        </b-table-simple>
+          </tbody> </b-table-simple
+        ><b-pagination
+          align="center"
+          v-model="currentPage"
+          :total-rows="rows"
+          :per-page="perPage"
+          aria-controls="my-table"
+        ></b-pagination>
       </b-col>
       <!-- <b-col v-else class="text-center">도서 목록이 없습니다.</b-col> -->
     </b-row>
@@ -47,7 +53,20 @@ export default {
   data() {
     return {
       users: [],
+      perPage: 5,
+      currentPage: 1,
     };
+  },
+  computed: {
+    rows() {
+      return this.users.length;
+    },
+    itemsForList() {
+      return this.users.slice(
+        (this.currentPage - 1) * this.perPage,
+        this.currentPage * this.perPage
+      );
+    },
   },
   created() {
     http.get(`/user`).then(({ data }) => {

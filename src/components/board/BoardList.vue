@@ -11,6 +11,12 @@
         <b-button variant="dark" @click="moveWrite()">질문하기</b-button>
       </b-col>
     </b-row>
+    <b-form-input
+      v-model="searchName"
+      type="text"
+      placeholder="제목을 검색하세요."
+    ></b-form-input>
+    <br />
     <b-row>
       <b-col v-if="articles.length">
         <b-table-simple hover responsive style="border-radius: 16px">
@@ -39,7 +45,6 @@
           v-model="currentPage"
           :total-rows="rows"
           :per-page="perPage"
-          aria-controls="my-table"
         ></b-pagination>
       </b-col>
       <!-- <b-col v-else class="text-center">도서 목록이 없습니다.</b-col> -->
@@ -61,6 +66,7 @@ export default {
       articles: [],
       perPage: 3,
       currentPage: 1,
+      searchName: "",
     };
   },
   computed: {
@@ -68,10 +74,18 @@ export default {
       return this.articles.length;
     },
     itemsForList() {
-      return this.articles.slice(
-        (this.currentPage - 1) * this.perPage,
-        this.currentPage * this.perPage
-      );
+      if (this.searchName) {
+        return this.articles
+          .filter((data) => {
+            return data.subject.includes(this.searchName);
+          })
+          .slice(0);
+      } else {
+        return this.articles.slice(
+          (this.currentPage - 1) * this.perPage,
+          this.currentPage * this.perPage
+        );
+      }
     },
   },
   created() {

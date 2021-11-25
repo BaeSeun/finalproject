@@ -27,6 +27,7 @@ export default {
     regtime: String,
     currentPage: Number,
     perPage: Number,
+    searchName: String,
   },
   computed: {
     // changeDateFormat() {

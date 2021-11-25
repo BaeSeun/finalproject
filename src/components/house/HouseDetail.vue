@@ -1,28 +1,48 @@
 <template>
   <b-container v-if="house" class="bv-example-row">
-    <img
-      src="@/assets/aptdetailimg1.png"
-      class="d-inline-block align-left"
-      width="500px"
-      alt="Kitten"
-    />
-
+    <div>
+      <img
+        src="@/assets/aptdetailimg1.png"
+        class="d-inline-block align-left"
+        width="500px"
+        alt="Kitten"
+      />
+    </div>
+    <br />
     <b-row>
       <b-col
         ><h3>{{ house.아파트 }}</h3></b-col
       >
     </b-row>
+    <br />
     <b-row>
       <b-table-simple hover responsive style="border-radius: 16px">
-        <b-thead>
-          <b-tr class="table-success">
+        <b-tr>
+          <b-th class="table-success">일련번호</b-th>
+          <b-td>{{ house.일련번호 }}</b-td>
+        </b-tr>
+        <b-tr>
+          <b-th class="table-success">법정동</b-th>
+          <b-td>{{ house.법정동 }}</b-td>
+        </b-tr>
+        <b-tr>
+          <b-th class="table-success">층수</b-th>
+          <b-td>{{ house.층 }}층</b-td>
+        </b-tr>
+        <b-tr>
+          <b-th class="table-success">거래금액</b-th>
+          <b-td
+            >{{
+              (parseInt(house.거래금액.replace(",", "")) * 10000) | price
+            }}원</b-td
+          >
+        </b-tr>
+        <!-- <b-tr class="table-success">
             <b-th>일련번호</b-th>
             <b-th>법정동</b-th>
             <b-th>층수</b-th>
             <b-th>거래금액</b-th>
           </b-tr>
-        </b-thead>
-        <tbody>
           <b-tr>
             <b-th>{{ house.일련번호 }}</b-th>
             <b-td>{{ house.법정동 }}</b-td>
@@ -32,8 +52,7 @@
                 (parseInt(house.거래금액.replace(",", "")) * 10000) | price
               }}원
             </b-td>
-          </b-tr>
-        </tbody>
+          </b-tr> -->
       </b-table-simple>
     </b-row>
     <b-row> </b-row>
