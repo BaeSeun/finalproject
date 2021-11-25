@@ -55,6 +55,6 @@ export default {
   width: 50px;
 }
 .mouse-over-bgcolor {
-  background-color: lightblue;
+  background-color: rgb(212, 231, 166);
 }
 </style>

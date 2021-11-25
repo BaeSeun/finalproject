@@ -13,7 +13,7 @@
     </b-row>
     <b-row>
       <b-col v-if="articles.length">
-        <b-table-simple hover responsive>
+        <b-table-simple hover responsive style="border-radius: 16px">
           <b-thead head-variant="success">
             <b-tr class="table-success">
               <b-th>글번호</b-th>

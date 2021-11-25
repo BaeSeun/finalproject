@@ -8,7 +8,7 @@
       /><button v-on:click="searchKeyword">검색</button>
     </div>
     <br />
-    <div id="map"></div>
+    <div id="map" style="border-radius: 4em"></div>
 
     <ul id="category">
       <li id="BK9" data-order="0" @click="onClickCategory(clist[0])">

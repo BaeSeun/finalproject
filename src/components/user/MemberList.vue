@@ -8,8 +8,8 @@
     />
     <b-row>
       <b-col v-if="users.length">
-        <b-table-simple hover responsive>
-          <b-thead head-variant="dark">
+        <b-table-simple hover responsive style="border-radius: 16px">
+          <b-thead class="table-success">
             <b-tr>
               <b-th class="col-1">아이디</b-th>
               <b-th class="col-2">이름</b-th>

@@ -60,8 +60,7 @@
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto" v-if="userInfo">
           <b-nav-item class="align-self-center">
-            {{ userInfo.username }}님
-            환영합니다.</b-nav-item
+            {{ userInfo.username }}님 환영합니다.</b-nav-item
           >
           <b-nav-item class="align-self-center"
             ><router-link
@@ -131,4 +130,10 @@ export default {
 .nav-item {
   color: green !important;
 }
+
+/* @import url("https://fonts.googleapis.com/css2?family=Road+Rage&display=swap");
+html,
+body {
+  font-family: "Road Rage", cursive !important;
+} */
 </style>

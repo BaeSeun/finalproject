@@ -11,25 +11,20 @@
         <b-button variant="success" @click="listArticle">목록</b-button>
       </b-col>
       <b-col class="text-right">
-        <b-button
-          variant="success"
-          size="sm"
-          @click="moveModifyArticle"
-          class="mr-2"
+        <b-button variant="success" @click="moveModifyArticle" class="mr-2"
           >질문 수정</b-button
         >
-        <b-button variant="success" size="sm" @click="deleteArticle"
-          >질문 삭제</b-button
-        >
+        <b-button variant="success" @click="deleteArticle">질문 삭제</b-button>
       </b-col>
     </b-row>
+    <br />
     <b-row class="mb-1">
       <b-col>
         <b-card
           :header-html="`<h3>${article.articleno}.
           ${article.subject} [${article.hit}]</h3><div><h6>${article.userid}</div><div>${article.regtime}</h6></div>`"
           class="mb-2"
-          border-variant="dark"
+          border-variant="transparent"
           no-body
         >
           <b-card-body class="text-left">
@@ -39,7 +34,7 @@
       </b-col>
     </b-row>
     <b-col v-if="answer">
-      <b-table-simple hover responsive v-if="show">
+      <b-table-simple hover responsive v-if="show" style="border-radius: 16px">
         <b-thead class="table-success">
           <b-tr>
             <b-th>작성자</b-th>
@@ -54,12 +49,9 @@
         v-if="modify"
         v-bind="answer"
         type="modify"
-      /><b-button variant="dark" size="sm" @click="modifyAnswer"
-        >답변 수정</b-button
+      /><b-button variant="dark" @click="modifyAnswer">답변 수정</b-button
       >&nbsp;
-      <b-button variant="dark" size="sm" @click="deleteAnswer"
-        >답변 삭제</b-button
-      >
+      <b-button variant="dark" @click="deleteAnswer">답변 삭제</b-button>
     </b-col>
     <b-col v-else class="text-center"
       ><answer-write-form type="answer"

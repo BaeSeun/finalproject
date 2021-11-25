@@ -9,11 +9,11 @@
     <b-row class="mb-1">
       <b-col class="sm-3">
         <img
-        src="@/assets/aptinfoimg2.png"
-        class="align-left"
-        width="100px"
-        alt="Kitten"
-      />
+          src="@/assets/aptinfoimg2.png"
+          class="align-left"
+          width="100px"
+          alt="Kitten"
+        />
         <b-form-select
           v-model="sidoCode"
           :options="sidos"
@@ -22,11 +22,11 @@
       </b-col>
       <b-col class="sm-3">
         <img
-        src="@/assets/aptinfoimg3.png"
-        class="align-left"
-        width="100px"
-        alt="Kitten"
-      />
+          src="@/assets/aptinfoimg3.png"
+          class="align-left"
+          width="100px"
+          alt="Kitten"
+        />
         <b-form-select
           v-model="gugunCode"
           :options="guguns"
@@ -34,6 +34,7 @@
         ></b-form-select>
       </b-col>
     </b-row>
+    <br />
     <b-row>
       <b-col>
         <!-- <b-table-simple hover responsive>
@@ -54,7 +55,7 @@
             />
           </tbody>
         </b-table-simple> -->
-        <b-table-simple hover responsive>
+        <b-table-simple hover responsive style="border-radius: 16px">
           <b-thead head-variant="success">
             <b-tr class="table-success">
               <b-th>CCTV관리청</b-th>
@@ -79,7 +80,7 @@
           aria-controls="my-table"
         ></b-pagination>
       </b-col>
-      <div id="map"></div>
+      <div id="map" style="border-radius: 4em"></div>
     </b-row>
   </b-container>
 </template>
