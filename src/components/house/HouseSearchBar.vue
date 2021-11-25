@@ -59,7 +59,7 @@ import { mapState, mapActions, mapMutations } from "vuex";
     키: 값
     memberStore: memberStore,
     houseStore: houseStore
-  }  
+  }
 */
 const houseStore = "houseStore";
 
@@ -72,7 +72,6 @@ export default {
       map: null,
       markerPositions1: [],
       markers: [],
-      infowindow: null,
     };
   },
   computed: {
@@ -112,31 +111,7 @@ export default {
       this.map = new kakao.maps.Map(container, options);
     },
   },
-  updated() {
-    this.initMap();
-    this.add = this.house.법정동 + " " + this.house.지번;
-    this.apt = this.house.아파트;
-    this.geocoder = new kakao.maps.services.Geocoder();
-    this.geocoder.addressSearch(this.add, (result, status) => {
-      // 정상적으로 검색이 완료됐으면
-      if (status === kakao.maps.services.Status.OK) {
-        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-        this.markerPositions1.push(coords);
-        var marker = new kakao.maps.Marker({
-          map: this.map,
-          position: coords,
-        });
-        var infowindow = new kakao.maps.InfoWindow({
-          content:
-            '<div style="width:150px;text-align:center;padding:6px 0;">' +
-            this.apt +
-            "</div>",
-        });
-        infowindow.open(this.map, marker);
-        this.map.setCenter(coords);
-      }
-    });
-  },
+
   mounted() {
     if (window.kakao && window.kakao.maps) {
       this.initMap();

@@ -94,13 +94,58 @@ export default {
           map: this.map,
           position: coords,
         });
-        var infowindow = new kakao.maps.InfoWindow({
+        marker.setMap(this.map);
+        var customOverlay = new kakao.maps.CustomOverlay({
+          map: this.map,
+          position: marker.getPosition(),
           content:
-            '<div style="width:150px;text-align:center;padding:6px 0;">' +
-            this.apt +
+            '<div class="placeinfo_wrap" style="position: absolute; bottom: 28pxleft: -150px; width: 300px">' +
+            '<div class="placeinfo" style="position:relative;width:100%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;">' +
+            '   <p class="title" href="' +
+            '" style="font-weight: bold; font-size:14px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #d95050;background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center; display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">' +
+            this.house.아파트 +
+            "</p>" +
+            "</span>" +
+            "    <span " +
+            '" style="display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap; margin:5px 5px 0 5px;cursor: default;font-size:13px;"> 법정동 : ' +
+            this.house.법정동 +
+            "</span>" +
+            "    <span " +
+            '" style="display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap; margin:5px 5px 0 5px;cursor: default;font-size:13px;"> 층수 : ' +
+            this.house.층 +
+            "층</span>" +
+            "    <span " +
+            '" style="display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap; margin:5px 5px 0 5px;cursor: default;font-size:13px;"> 가격 : ' +
+            this.house.거래금액 +
+            "만원</span>" +
+            "</div>" +
+            '<div class="after" style="content:"";position:relative;margin-left:-12px;left:50%;width:22px;height:12px;background:url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png")"></div>' +
             "</div>",
+          yAnchor: 1,
         });
-        infowindow.open(this.map, marker);
+        // var infowindow = new kakao.maps.InfoWindow({
+        //   content:
+        //     '<div style="bottom: 28pxleft: -150px; width: 300px">' +
+        //     '<div style="position:relative;width:100%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;">' +
+        //     '    <span title="' +
+        //     this.house.아파트 +
+        //     '" style="display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap; margin:5px 5px 0 5px;cursor: default;font-size:13px;">' +
+        //     this.house.아파트 +
+        //     "</span>" +
+        //     '  <span class="jibun" title="' +
+        //     this.house.아파트 +
+        //     '" style="display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap; margin:5px 5px 0 5px;cursor: default;font-size:13px; color:#999;font-size:11px;margin-top:0;">(지번 : ' +
+        //     this.house.아파트 +
+        //     ")</span>" +
+        //     '    <span class="tel" style="color:#0f7833;display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap; margin:5px 5px 0 5px;cursor: default;font-size:13px;">' +
+        //     this.house.아파트 +
+        //     "</span>" +
+        //     "</div>" +
+        //     '<div class="after" style="content:"";position:relative;margin-left:-12px;left:50%;width:22px;height:12px;background:url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png")"></div>' +
+        //     "</div>",
+        // });
+        // infowindow.open(this.map, marker);
+        customOverlay.setMap(this.map);
         this.map.setCenter(coords);
       }
     });
