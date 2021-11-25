@@ -130,4 +130,10 @@ export default {
 .nav-item {
   color: green !important;
 }
+
+/* @import url("https://fonts.googleapis.com/css2?family=Road+Rage&display=swap");
+html,
+body {
+  font-family: "Road Rage", cursive !important;
+} */
 </style>

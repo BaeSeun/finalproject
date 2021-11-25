@@ -1,13 +1,11 @@
 <template>
   <b-container class="bv-example-row mt-3">
-    <b-row>
-      <b-col>
-        <b-alert show><h3>질문 목록</h3></b-alert>
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col><b-alert show variant="dark">삭제처리중...</b-alert></b-col>
-    </b-row>
+    <!-- <img
+      src="@/assets/answerdeleteimg1.png"
+      class="d-inline-block align-middle"
+      width="600px"
+      alt="Kitten"
+    /> -->
   </b-container>
 </template>
 

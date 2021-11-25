@@ -1,5 +1,11 @@
 <template>
-  <b-container v-if="houses && houses.length != 0" class="bv-example-row mt-3">
+  <b-container v-if="houses && houses.length != 0" class="bv-example-row">
+    <img
+      src="@/assets/aptlistimg1.png"
+      class="d-inline-block align-left"
+      width="500px"
+      alt="Kitten"
+    />
     <house-list-row
       v-for="(house, index) in itemsForList"
       :key="index"

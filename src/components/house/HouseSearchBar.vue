@@ -1,6 +1,7 @@
 <template>
-  <b-row class="mt-4 mb-4 text-center">
-    <!-- <b-col class="sm-3">
+  <div>
+    <b-row class="mt-4 mb-4 text-center">
+      <!-- <b-col class="sm-3">
       <b-form-input
         v-model.trim="dongCode"
         placeholder="동코드 입력...(예 : 11110)"
@@ -10,33 +11,41 @@
     <b-col class="sm-3" align="left">
       <b-button variant="outline-primary" @click="sendKeyword">검색</b-button>
     </b-col> -->
-    <b-col class="sm-3">
-      <img
-        src="@/assets/aptinfoimg2.png"
-        class="align-left"
-        width="100px"
-        alt="Kitten"
-      />
-      <b-form-select
-        v-model="sidoCode"
-        :options="sidos"
-        @change="gugunList"
-      ></b-form-select>
-    </b-col>
-    <b-col class="sm-3">
-      <img
-        src="@/assets/aptinfoimg3.png"
-        class="d-inline-block align-left"
-        width="100px"
-        alt="Kitten"
-      />
-      <b-form-select
-        v-model="gugunCode"
-        :options="guguns"
-        @change="searchApt"
-      ></b-form-select>
-    </b-col>
-  </b-row>
+      <b-col class="sm-3">
+        <img
+          src="@/assets/aptinfoimg2.png"
+          class="align-left"
+          width="100px"
+          alt="Kitten"
+        />
+        <b-form-select
+          v-model="sidoCode"
+          :options="sidos"
+          @change="gugunList"
+        ></b-form-select>
+      </b-col>
+      <b-col class="sm-3">
+        <img
+          src="@/assets/aptinfoimg3.png"
+          class="d-inline-block align-left"
+          width="100px"
+          alt="Kitten"
+        />
+        <b-form-select
+          v-model="gugunCode"
+          :options="guguns"
+          @change="searchApt"
+        ></b-form-select>
+      </b-col>
+    </b-row>
+
+    <b-row class="mb-2 mt-1">
+      <div>
+        <div id="map2" style="border-radius: 5em"></div>
+      </div>
+    </b-row>
+    <br />
+  </div>
 </template>
 
 <script>
@@ -60,10 +69,15 @@ export default {
     return {
       sidoCode: null,
       gugunCode: null,
+      map: null,
+      markerPositions1: [],
+      markers: [],
+      infowindow: null,
     };
   },
   computed: {
     ...mapState(houseStore, ["sidos", "guguns"]),
+    ...mapState(houseStore, ["house"]),
     // sidos() {
     //   return this.$store.state.sidos;
     // },
@@ -89,8 +103,64 @@ export default {
     searchApt() {
       if (this.gugunCode) this.getHouseList(this.gugunCode);
     },
+    initMap() {
+      const container = document.getElementById("map2");
+      const options = {
+        center: new kakao.maps.LatLng(33.450701, 126.570667),
+        level: 5,
+      };
+      this.map = new kakao.maps.Map(container, options);
+    },
+  },
+  updated() {
+    this.initMap();
+    this.add = this.house.법정동 + " " + this.house.지번;
+    this.apt = this.house.아파트;
+    this.geocoder = new kakao.maps.services.Geocoder();
+    this.geocoder.addressSearch(this.add, (result, status) => {
+      // 정상적으로 검색이 완료됐으면
+      if (status === kakao.maps.services.Status.OK) {
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+        this.markerPositions1.push(coords);
+        var marker = new kakao.maps.Marker({
+          map: this.map,
+          position: coords,
+        });
+        var infowindow = new kakao.maps.InfoWindow({
+          content:
+            '<div style="width:150px;text-align:center;padding:6px 0;">' +
+            this.apt +
+            "</div>",
+        });
+        infowindow.open(this.map, marker);
+        this.map.setCenter(coords);
+      }
+    });
+  },
+  mounted() {
+    if (window.kakao && window.kakao.maps) {
+      this.initMap();
+    } else {
+      const script = document.createElement("script");
+      /* global kakao */
+      script.onload = () => kakao.maps.load(this.initMap);
+      script.src =
+        "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=915cffed372954b7b44804ed422b9cf0&libraries=services";
+      document.head.appendChild(script);
+    }
+  },
+  filters: {
+    price(value) {
+      if (!value) return value;
+      return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
   },
 };
 </script>
 
-<style></style>
+<style>
+#map2 {
+  width: 1150px;
+  height: 500px;
+}
+</style>
